@@ -1,1 +1,83 @@
-// Specific CSS for your home-page
+.square {
+  background: #0059D2;
+  padding-bottom: 30px;
+}
+
+.under-square {
+  background: #0059D2;
+  padding-top: 30px;
+  color: white;
+  font-weight:regular;
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.project-title:before, .project-title:after {
+  content: "";
+  display: inline-block;
+  width: 50%;
+  margin: 0 7.5em 0 -55%;
+  vertical-align: middle;
+  border-bottom: 1px solid;
+}
+
+.project-title {
+  width: 100%;
+  // margin: 0 auto;
+  overflow: hidden;
+  text-align: center;
+  font-weight:300;
+  color: #fff;
+}
+
+.project-title:after {
+  margin: 0 -55% 0 7.5em;
+}
+span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.shared-project:hover {
+  border-bottom: solid 2px white;
+}
+
+.container-card {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+
+ }
+
+
+
+
+.first-card-doc {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 200px;
+  background: white;
+  border-radius: 8px;
+  justify-content: center;
+
+   }
+
+.all {
+    background: #0059D2;
+
+}
+
+.first-component-card{
+color: #0059D2;
+}
+
+.username{
+  padding-left: 100px;
+  font-family: "comfortaa"
+}
+
+.user-card{
+}
