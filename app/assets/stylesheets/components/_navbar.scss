@@ -33,6 +33,30 @@ text-decoration: none;
 font-weight: regular;
 
 
+.navbar {
+  display: flex;
+  justify-content: space-beetwen;
+  background-color: white;
+}
+
+.navbar-box{
+  display: flex;
+}
+
+.navabar-box-text{
+  padding-top:5px;
+  margin: 10px;
+  margin-left: 10px;
+}
+
+.text-navbar{
+  font-size: 20px;
+}
+
+.img-navbar{
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
 }
 
 .nav-dx a {
