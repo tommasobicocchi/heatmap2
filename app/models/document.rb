@@ -1,3 +1,3 @@
 class Document < ApplicationRecord
-  mount_uploader :filepath, CsvUploader
+  mount_uploader :link, CsvUploader
 end
