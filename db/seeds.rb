@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
 
-#a = Document.new
-#a.link = "../lib/experiment.csv"
-#a.save
+a = Document.new
+a.link = "../lib/experiment.csv"
+a.save
 
 #csv_string = open("../lib/experiment.csv").read
 
