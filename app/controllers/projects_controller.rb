@@ -1,5 +1,4 @@
 class ProjectsController < ApplicationController
-
   def index
     @projects = Project.all
   end
@@ -20,8 +19,6 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
-
-    # no need for app/views/projects/destroy.html.erb
     redirect_to projects_path
   end
 end

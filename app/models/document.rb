@@ -1,5 +1,6 @@
 class Document < ApplicationRecord
   mount_uploader :link, CsvUploader
+    has_many :charts, dependent: :destroy
 
     def to_csv
     array = []
@@ -10,4 +11,5 @@ class Document < ApplicationRecord
       end
       array
     end
+
 end
