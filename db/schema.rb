@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_214918) do
     t.string "link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "arrayofhash", default: [], array: true
+    t.text "arrayofhash", default: [], array: true
   end
 
   create_table "projects", force: :cascade do |t|
