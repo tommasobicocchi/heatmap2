@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_214918) do
+ActiveRecord::Schema.define(version: 2019_12_11_150428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,14 @@ ActiveRecord::Schema.define(version: 2019_12_10_214918) do
     t.index ["creator_id"], name: "index_blazer_queries_on_creator_id"
   end
 
+  create_table "charts", force: :cascade do |t|
+    t.jsonb "data"
+    t.bigint "document_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["document_id"], name: "index_charts_on_document_id"
+  end
+
   create_table "documents", force: :cascade do |t|
     t.string "link"
     t.datetime "created_at", precision: 6, null: false
@@ -104,5 +112,6 @@ ActiveRecord::Schema.define(version: 2019_12_10_214918) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "charts", "documents"
   add_foreign_key "projects", "users"
 end
