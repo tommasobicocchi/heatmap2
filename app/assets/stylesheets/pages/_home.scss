@@ -6,11 +6,25 @@
 
 .under-square {
   background: #0059D2;
-  padding-top: 30px;
+  padding-top: 40px;
   color: white;
-  font-weight:regular;
+  font-weight: 500;
   display: flex;
   justify-content: space-around;
+  font-family: comfortaa;
+  margin-left: 15px;
+  }
+
+.font-size {
+  font-size: 30px;
+}
+
+.font-size-second {
+  font-size: 30px;
+}
+
+.font-size-third {
+  font-size: 30px;
 
 }
 
@@ -28,8 +42,10 @@
   // margin: 0 auto;
   overflow: hidden;
   text-align: center;
-  font-weight:300;
+  font-weight: 600;
   color: #fff;
+  font-family: comfortaa;
+  font-size: 50px;
 }
 
 .project-title:after {
@@ -40,47 +56,65 @@ span {
   vertical-align: middle;
 }
 
-.shared-project:hover {
+.border-bottom-header {
   border-bottom: solid 2px white;
 }
 
 .container-card {
-  width: 400px;
+  width: 1200px;
   margin-left: auto;
   margin-right: auto;
 
  }
 
-
-
-
 .first-card-doc {
   margin-top: 100px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 200px;
   background: white;
   border-radius: 8px;
-  justify-content: center;
+ }
 
-   }
 
-.all {
+.card-that-contain-all {
     background: #0059D2;
-
+    padding-bottom: 50px;
 }
 
-.first-component-card{
+
+.first-component-card {
 color: #0059D2;
+margin-left: 20px;
 }
+
+
+.second-component-card {
+color: #0059D2;
+display: flex;
+align-items: center;
+}
+
+
+.first-component-card p {
+font-size: 500;
+}
+
+
 
 .username{
   padding-left: 100px;
-  font-family: "comfortaa"
+  font-family: "comfortaa";
+  color: #0059D2;
+  font-weight: bold;
+  margin-right: 30px;
+  font-size: 20px;
 }
 
+
 // Specific CSS for your home-page
+//   Tommaso landing page code start here
 
 .box-header{
   background-color: black;
@@ -157,3 +191,4 @@ color: #0059D2;
 .span-color{
   color: #0059D2;
 }
+

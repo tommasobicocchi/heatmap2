@@ -4,15 +4,12 @@
     justify-content: space-between;
     background: #0059D2;
     padding: 25px;
-
-
 }
 
 .nav-dx {
   display:flex;
   align-items:center;
   display: flex;
-
 }
 
 .nav-sx {
@@ -20,18 +17,35 @@
 }
 
 .nav-dx img {
-  height: 50px;
+  height: 30px;
+  margin-left: 15px;
 }
 
 .nav-sx img {
-  height: 50px;
+  height: 30px;
 }
 
 .nav-sx a {
 color: white;
 text-decoration: none;
 font-weight: regular;
+font-family: comfortaa;
 
+}
+
+.nav-dx a {
+ color: white;
+ text-decoration: none;
+ font-weight: bold;
+ font-family: comfortaa;
+ justify-content: space-between;
+ margin-left: 15px;
+}
+
+
+
+
+// tommaso landing page navbar code start here
 
 .navbar {
   display: flex;
@@ -51,6 +65,7 @@ font-weight: regular;
 
 .text-navbar{
   font-size: 20px;
+  font-family: comfortaa;
 }
 
 .img-navbar{
@@ -59,11 +74,8 @@ font-weight: regular;
   margin-right: 10px;
 }
 
-.nav-dx a {
- color: white;
- text-decoration: none;
- font-weight: bold;
- }
+
+
 
 
 
