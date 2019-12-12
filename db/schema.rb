@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-
-ActiveRecord::Schema.define(version: 2019_12_11_170658) do
+ActiveRecord::Schema.define(version: 2019_12_12_161530) do
 
 
 
@@ -80,15 +78,13 @@ ActiveRecord::Schema.define(version: 2019_12_11_170658) do
     t.index ["creator_id"], name: "index_blazer_queries_on_creator_id"
   end
 
-<<<<<<< HEAD
-=======
 
->>>>>>> afab4c72cdfd45db4a8b70cafcd0913386cd33cb
   create_table "charts", force: :cascade do |t|
     t.jsonb "data"
     t.bigint "document_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "description"
     t.index ["document_id"], name: "index_charts_on_document_id"
   end
 
@@ -96,13 +92,9 @@ ActiveRecord::Schema.define(version: 2019_12_11_170658) do
     t.string "link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-<<<<<<< HEAD
     t.text "arrayofhash", default: [], array: true
-=======
-
-    t.text "arrayofhash", default: [], array: true
-
->>>>>>> afab4c72cdfd45db4a8b70cafcd0913386cd33cb
+    t.bigint "project_id", null: false
+    t.index ["project_id"], name: "index_documents_on_project_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -129,5 +121,6 @@ ActiveRecord::Schema.define(version: 2019_12_11_170658) do
   end
 
   add_foreign_key "charts", "documents"
+  add_foreign_key "documents", "projects"
   add_foreign_key "projects", "users"
 end

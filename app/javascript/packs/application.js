@@ -1,22 +1,33 @@
 import "bootstrap";
 
-
-
-const loadCsv = () => {
-
-console.log('DOM completamente caricato e analizzato');
-
-}
+// import {barChart, lineChart, doughnutChart} from "../plugin/init_chart"
+import '../vendor/stimulus';
 
 
 
-document.addEventListener('DOMContentLoaded', (event) => {
-     loadCsv();
-});
+
+const selectcellindex = () => {
+const selectfile = document.querySelectorAll("td");
+console.log(selectfile);
+ selectfile.forEach(element => element.addEventListener("click", (event) => {
+    ennphatize(event.currentTarget.className);
+    //ennphatize(selectfile[i].cellIndex);
+  }));
+};
 
 
-import {barChart, lineChart, doughnutChart} from "../plugin/init_chart"
+const ennphatize = (x) => {
+ const selectfile = document.querySelectorAll(`.${x}`);
+ selectfile.forEach(element => element.classList.add('red'));
+};
 
-barChart();
-lineChart();
-doughnutChart();
+selectcellindex();
+
+
+
+
+
+// barChart(headers, data);
+// lineChart();
+// doughnutChart();
+

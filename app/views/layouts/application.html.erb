@@ -7,13 +7,12 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+    <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+    <%= javascript_pack_tag 'application'%>
   </head>
   <body>
     <%= render 'shared/flashes' %>
     <%= yield %>
-
-    <%= javascript_pack_tag 'application'%>
 
   </body>
 </html>

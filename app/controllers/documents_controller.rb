@@ -4,47 +4,40 @@ class DocumentsController < ApplicationController
 
 
   def index
+    @documents = Document.where(project_id: params[:project_id])
     @documents = Document.all
     @document = Document.new
+    @document = Document.where(project_id: params[:project_id])
     if params[:document_id].present?
-      last_element = Document.find(params[:document_id])
-      #last_element.assign_attributes(arrayofhash: set_attribute_to_csv(@documents.last.link.url))
-      #last_element.arrayofhash_will_change!
-      @arrayofhash = last_element.to_csv
+      element_params = Document.find(params[:document_id])
+      @arrayofhash = element_params.to_data
       @headers = @arrayofhash.first.keys
-      sum_columns_hash(@arrayofhash)
+      element_params.sum_hash
+      #@arrayofhash.get_headers
     end
-  end
-
-  def document_params
-    params.require(:document).permit(:link)
-  end
-
-  def new
-    @document = Document.new
   end
 
   def create
-    #csv_hash = {}
     @document = Document.new(document_params)
-    @document.save
-    redirect_to documents_path(document_id: @document.id)
-    #set_attribute_to_csv(@document[:link], csv_hash)
-    #@document.link = csv_hash
+    @document.project_id = params[:project_id]
+    if @document.save
+      redirect_to project_documents_path(document_id: @document.id)
+    else
+      render 'index'
+    end
   end
 
-  def sum_columns_hash(array)
-    container_number = 0
-    sum = Hash.new(0)
-    array.each_with_object(sum) do |hash, sum|
-      a = hash.each { |key, value| sum[key] += value.to_i }.map { |k,v| v}
-    end
-    #container_number.delete_at(0)
-    #container_number
-    #raise
-  end
 
   private
+
+  def sum_columns_hash(arrayofhash)
+    container_number = 0
+    sum = Hash.new(0)
+    arrayofhash.each_with_object(sum) do |hash, sum|
+      container_number = hash.each { |key, value| sum[key] += value.to_i }.map { |k,v| v}
+    end
+    container_number.drop(1)
+  end
 
   def set_attribute_to_csv(link)
     array = []
@@ -57,7 +50,7 @@ class DocumentsController < ApplicationController
     end
 
   def document_params
-    params.require(:document).permit(:link)
+    params.require(:document).permit(:link, :project_id)
   end
 
 end

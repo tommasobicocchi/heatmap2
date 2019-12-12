@@ -4,7 +4,7 @@
     <div class="col-4">
       <ul>
         <% @documents.each do |document| %>
-        <li> <%= link_to "#{document.link.url}", documents_path(document_id: document.id) %> </li>
+        <li> <%= link_to "#{document.link.url}", project_documents_path(document_id: document.id) %> </li>
         <% end %>
       </ul>
     </div>
@@ -12,10 +12,10 @@
     <div class="col-8">
       <div class="uploader">
         <h1>Put a file</h1>
-<%= simple_form_for @document do |f| %>
-  <%= f.input :link %>
- <%= f.submit %>
-<% end %>
+        <%= simple_form_for(Document.new, :url => { :action => "create" })  do |f| %>
+        <%= f.input :link %>
+        <%= f.submit %>
+        <% end %>
 
 <div id="my-created-dropzone"
      style="height: 100px; width: 100%; border: 2px solid rgba(0, 0, 0, 0.3)">
@@ -24,11 +24,16 @@
       </div>
 <% if params[:document_id].present?  %>
 
+
+<%= link_to "bar", charts_preview_path(document_id: params[:document_id], chart_type: "bar") %>
+<%= link_to "line", charts_preview_path(document_id: params[:document_id], chart_type: "line") %>
+<%= link_to "doughnut", charts_preview_path(document_id: params[:document_id], chart_type: "doughnut") %>
+
 <table class="table">
 <thead class="thead-dark">
   <tr>
     <% @headers.each do |element| %>
-    <td><%= element %></td>
+    <td class="<%= element %>"><%= element %></td>
     <% end %>
   </tr>
 </thead>
@@ -37,7 +42,7 @@
   <% @arrayofhash.each do |thing| %>
 <tr>
   <% thing.each do |key, value| %>
-  <td><%= value %></td>
+  <td class="<%= key %> "><%= value %></td>
   <% end %>
 </tr>
   <% end %>
