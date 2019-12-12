@@ -24,6 +24,7 @@
       </div>
 <% if params[:document_id].present?  %>
 
+
 <%= link_to "bar", charts_preview_path(document_id: params[:document_id], chart_type: "bar") %>
 <%= link_to "line", charts_preview_path(document_id: params[:document_id], chart_type: "line") %>
 <%= link_to "doughnut", charts_preview_path(document_id: params[:document_id], chart_type: "doughnut") %>
@@ -32,7 +33,7 @@
 <thead class="thead-dark">
   <tr>
     <% @headers.each do |element| %>
-    <td><%= element %></td>
+    <td class="<%= element %>"><%= element %></td>
     <% end %>
   </tr>
 </thead>
@@ -41,7 +42,7 @@
   <% @arrayofhash.each do |thing| %>
 <tr>
   <% thing.each do |key, value| %>
-  <td><%= value %></td>
+  <td class="<%= key %> "><%= value %></td>
   <% end %>
 </tr>
   <% end %>

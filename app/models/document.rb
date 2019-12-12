@@ -7,6 +7,7 @@ class Document < ApplicationRecord
     to_csv.first.keys.drop(1)
   end
 
+
   def csv_data
     to_csv.inject { |hash, row| hash.merge(row) { |_key, total, value| total.to_i + value.to_i } }.values.drop(1)
   end

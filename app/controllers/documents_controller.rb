@@ -10,9 +10,10 @@ class DocumentsController < ApplicationController
     @document = Document.where(project_id: params[:project_id])
     if params[:document_id].present?
       element_params = Document.find(params[:document_id])
-      @arrayofhash = element_params.to_csv
+      @arrayofhash = element_params.to_data
       @headers = @arrayofhash.first.keys
-      #@arrayofhash.sum_hash
+      element_params.sum_hash
+      #@arrayofhash.get_headers
     end
   end
 
@@ -29,10 +30,10 @@ class DocumentsController < ApplicationController
 
   private
 
-  def sum_columns_hash(array)
+  def sum_columns_hash(arrayofhash)
     container_number = 0
     sum = Hash.new(0)
-    array.each_with_object(sum) do |hash, sum|
+    arrayofhash.each_with_object(sum) do |hash, sum|
       container_number = hash.each { |key, value| sum[key] += value.to_i }.map { |k,v| v}
     end
     container_number.drop(1)
