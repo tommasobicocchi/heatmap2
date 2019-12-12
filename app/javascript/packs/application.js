@@ -1,5 +1,10 @@
 import "bootstrap";
 
+// import {barChart, lineChart, doughnutChart} from "../plugin/init_chart"
+import '../vendor/stimulus';
+
+
+
 
 const selectcellindex = () => {
 const selectfile = document.querySelectorAll("td");
@@ -19,11 +24,10 @@ const ennphatize = (x) => {
 selectcellindex();
 
 
-//for (let i = 0; i < selectfile.length; i++) {
-//  selectfile[i].addEventListener("click", (event) => {
-//    selectfile[i].innerHTML = "";
-//    console.log(selectfile[i]);
-//  })
-//};
 
+
+
+// barChart(headers, data);
+// lineChart();
+// doughnutChart();
 

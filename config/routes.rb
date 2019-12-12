@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'chart', to: 'pages#chart'
+  get 'charts/preview', to: 'charts#preview'
   root to: 'pages#home'
 
   resources :projects, only: [:create, :index, :show, :new, :destroy, :edit, :update] do

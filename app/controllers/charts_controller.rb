@@ -13,6 +13,11 @@ class ChartsController < ApplicationController
     redirect_to document_path(@document)
   end
 
+  def preview
+    @document = Document.find(params[:document_id])
+    @chart_type = params[:chart_type]
+  end
+
   private
 
   def chart_params
