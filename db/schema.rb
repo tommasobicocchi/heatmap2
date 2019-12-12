@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_12_11_170658) do
-=======
-ActiveRecord::Schema.define(version: 2019_12_11_150428) do
->>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,8 +76,6 @@ ActiveRecord::Schema.define(version: 2019_12_11_150428) do
     t.index ["creator_id"], name: "index_blazer_queries_on_creator_id"
   end
 
-<<<<<<< HEAD
-=======
   create_table "charts", force: :cascade do |t|
     t.jsonb "data"
     t.bigint "document_id", null: false
@@ -90,15 +84,11 @@ ActiveRecord::Schema.define(version: 2019_12_11_150428) do
     t.index ["document_id"], name: "index_charts_on_document_id"
   end
 
->>>>>>> master
   create_table "documents", force: :cascade do |t|
     t.string "link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-<<<<<<< HEAD
-=======
     t.text "arrayofhash", default: [], array: true
->>>>>>> master
   end
 
   create_table "projects", force: :cascade do |t|
