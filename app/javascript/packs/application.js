@@ -1,7 +1,7 @@
 import "bootstrap";
-import "chart.js";
-import {barChart, lineChart, doughnutChart} from "../plugin/init_chart"
 
+// import {barChart, lineChart, doughnutChart} from "../plugin/init_chart"
+import '../vendor/stimulus';
 
 
 document.querySelectorAll('td').on('click', function() {
@@ -13,7 +13,28 @@ document.querySelectorAll('td').on('click', function() {
     });
 });
 
+const selectcellindex = () => {
+const selectfile = document.querySelectorAll("td");
+console.log(selectfile);
+ selectfile.forEach(element => element.addEventListener("click", (event) => {
+    ennphatize(event.currentTarget.className);
+    //ennphatize(selectfile[i].cellIndex);
+  }));
+};
 
-barChart();
-lineChart();
-doughnutChart();
+
+const ennphatize = (x) => {
+ const selectfile = document.querySelectorAll(`.${x}`);
+ selectfile.forEach(element => element.classList.add('red'));
+};
+
+selectcellindex();
+
+
+
+
+
+// barChart(headers, data);
+// lineChart();
+// doughnutChart();
+

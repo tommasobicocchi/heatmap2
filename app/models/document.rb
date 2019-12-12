@@ -3,25 +3,22 @@ class Document < ApplicationRecord
   belongs_to :project
   has_many :charts, dependent: :destroy
 
-
-  def sum_hash
-    container_number = 0
-    sum = Hash.new(0)
-    array.each_with_object(sum) do |hash, sum|
-      container_number = hash.each { |key, value| sum[key] += value.to_i }.map { |k,v| v}
-    end
-    container_number.drop(1)
-    raise
+  def csv_headers
+    to_csv.first.keys.drop(1)
   end
 
-    def to_csv
+
+  def csv_data
+    to_csv.inject { |hash, row| hash.merge(row) { |_key, total, value| total.to_i + value.to_i } }.values.drop(1)
+  end
+
+  def to_csv
     array = []
     csv_file = open(link.url).read
     csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
     CSV.parse(csv_file, csv_options) do |row|
       array << row.to_hash
-      end
-      array
     end
-
+    array
+  end
 end
