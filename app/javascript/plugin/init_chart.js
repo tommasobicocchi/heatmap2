@@ -1,15 +1,16 @@
 import "chart.js";
 
-const barChart = () => {
+
+const barChart = (headers, data) => {
   var ctx = document.getElementById('barChart').getContext('2d');
   var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: headers,
       // these are the headers
       datasets: [{
         label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        data: data,
         // chart.js gets data as an array!
         backgroundColor: [
         'white',
