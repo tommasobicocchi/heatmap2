@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_11_150428) do
+ActiveRecord::Schema.define(version: 2019_12_11_204238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,8 @@ ActiveRecord::Schema.define(version: 2019_12_11_150428) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "arrayofhash", default: [], array: true
+    t.bigint "project_id", null: false
+    t.index ["project_id"], name: "index_documents_on_project_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -97,6 +99,7 @@ ActiveRecord::Schema.define(version: 2019_12_11_150428) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "description"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
@@ -113,5 +116,6 @@ ActiveRecord::Schema.define(version: 2019_12_11_150428) do
   end
 
   add_foreign_key "charts", "documents"
+  add_foreign_key "documents", "projects"
   add_foreign_key "projects", "users"
 end
