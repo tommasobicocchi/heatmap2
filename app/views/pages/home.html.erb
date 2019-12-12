@@ -1,20 +1,23 @@
 <nav class="navbar">
   <div class="navbar-box">
+   <%= link_to root_path do %>
     <%=image_tag(("target.png"), :class =>"img-navbar")%>
     <div class="navabar-box-text">
     <h2 class="text-navbar">HeatMap</h2>
+    <%end%>
     </div>
   </div>
 
   <div class="navbar-box">
     <div class="navabar-box-text">
-    <h2 class="text-navbar">Login</h2>
+      <h2 class="text-navbar">Login</h2>
     </div>
+    <%= link_to new_user_session_path do %>
     <%=image_tag(("login.png"), :class =>"img-navbar")%>
+    <% end %>
   </div>
 
 </nav>
-
 <div class="main-box-homepage">
 <div class="box-header">
 <div>
@@ -26,7 +29,14 @@
   <h5>With Heat <span class="span-color">Map</span> you can have a Clear View on Your Data.</h5>
 </div>
 <div class="call-to-action-homepage">
+  <%  if user_signed_in? %>
+
+   <% else %>
+
+ <%= link_to new_user_registration_path do %>
   <p class="call-to-action">Sign Up</p>
+   <% end %>
+   <%end%>
   <p class="call-to-action">Info</p>
 </div>
 </div>
@@ -73,3 +83,7 @@
 </div>
 </div>
 </div>
+
+
+
+
