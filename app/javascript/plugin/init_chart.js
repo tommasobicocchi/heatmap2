@@ -12,12 +12,12 @@ const barChart = () => {
         data: [12, 19, 3, 5, 2, 3],
         // chart.js gets data as an array!
         backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)'
+        'white',
+        'white',
+        'white',
+        'white',
+        'white',
+        'white'
         ],
         borderColor: [
         'rgba(255, 99, 132, 1)',
@@ -31,16 +31,34 @@ const barChart = () => {
       }]
     },
     options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
+        legend: {
+            labels: {
+                fontColor: "white",
+                fontSize: 12
+            }
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    fontColor: "white",
+                    fontSize: 12,
+                    stepSize: 1,
+                    beginAtZero: true
+                }
+            }],
+            xAxes: [{
+                ticks: {
+                    fontColor: "white",
+                    fontSize: 12,
+                    stepSize: 1,
+                    beginAtZero: true
+                }
         }]
       }
     }
   })
 };
+
                 // v pass data as a string here
 const lineChart = () => {
 var ctx = document.getElementById('lineChart').getContext('2d');
@@ -73,11 +91,28 @@ var myLineChart = new Chart(ctx, {
       }]
     },
     options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
+        legend: {
+            labels: {
+                fontColor: "white",
+                fontSize: 12
+            }
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    fontColor: "white",
+                    fontSize: 12,
+                    stepSize: 1,
+                    beginAtZero: true
+                }
+            }],
+            xAxes: [{
+                ticks: {
+                    fontColor: "white",
+                    fontSize: 12,
+                    stepSize: 1,
+                    beginAtZero: true
+                }
         }]
       }
     }
@@ -115,11 +150,28 @@ var myDoughnutChart = new Chart(ctx, {
       }]
     },
     options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
+        legend: {
+            labels: {
+                fontColor: "white",
+                fontSize: 12
+            }
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    fontColor: "white",
+                    fontSize: 12,
+                    stepSize: 1,
+                    beginAtZero: true
+                }
+            }],
+            xAxes: [{
+                ticks: {
+                    fontColor: "white",
+                    fontSize: 12,
+                    stepSize: 1,
+                    beginAtZero: true
+                }
         }]
       }
     }

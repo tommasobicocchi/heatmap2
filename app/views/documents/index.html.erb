@@ -1,38 +1,44 @@
-<h1>Put a file</h1>
-<%= simple_form_for @document do |f| %>
-  <%= f.input :link %>
- <%= f.submit %>
-<% end %>
-
-
-
-
-<% if params["format"].present?  %>
-
-<table>
-<thead>
-  <tr>
-    <% @headers.each do |element| %>
-    <%= element %>
-    <% end %>
-  </tr>
-</thead>
-
-<tbody>
-  <% @arrayofhash.each do |thing| %>
-  <% thing.each do |key, value| %>
-<tr>
-  <td><%= value %></td>
-</tr>
-  <% end %>
-  <% end %>
-
-</tbody>
-</table>
-
-<% end %>
-
-
-<canvas id="myChart" width="400" height="400"></canvas>
-
-
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <ul>
+        <% @documents.each do |document| %>
+        <li> <%= link_to "#{document.link.url}", project_documents_path(document_id: document.id) %> </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="col-8">
+      <div class="uploader">
+        <h1>Put a file</h1>
+        <%= simple_form_for(Document.new, :url => { :action => "create" })  do |f| %>
+        <%= f.input :link %>
+        <%= f.submit %>
+        <% end %>
+        <div id="my-created-dropzone"
+          style="height: 100px; width: 100%; border: 2px solid rgba(0, 0, 0, 0.3)">
+        </div>
+      </div>
+      <% if params[:document_id].present?  %>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <% @headers.each do |element| %>
+            <td><%= element %></td>
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
+          <% @arrayofhash.each do |thing| %>
+          <tr>
+            <% thing.each do |key, value| %>
+            <td><%= value %></td>
+            <% end %>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <% end %>
+      <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
+  </div>
+</div>
