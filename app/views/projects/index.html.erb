@@ -1,9 +1,21 @@
 
   <div class="navbar-heat">
 
-    <div class="nav-sx">
-      <%= image_tag "target(1).png" %>
-      <a href="#">HeatMap</a>
+  <div class="nav-sx">
+    <%= link_to root_path do %>
+    <%= image_tag "target(1).png" %>
+    <a href="#">HeatMap</a>
+    <% end %>
+  </div>
+  <div class="nav-dx">
+    <div >
+      <a href="#">Log out</a>
+      <%= image_tag "logout.png" %>
+    </div>
+    <div>
+     <a href="#">Setting</a>
+      <%= image_tag "setting.png", height: 30; %>
+    </div>
 
     </div>
     <div class="nav-dx">
@@ -35,9 +47,34 @@
    <%=  link_to (project_documents_path(project.id)) do  %>
    <div class="container-card">
     <div class="first-card-doc">
+
       <div class="first-component-card">
+
+        <h1 class="user-card">User</h1>
+        <p>Description</p>
+        <div class="buttons-container">
+          <a href="" class="our-all-Edit" ><span class="colour-buttom">a</span> Edit</a>
+          <%#= link_to "Edit", edit_project_path(project) %>
+          <%#= link_to "Delete", project_path(project), method: :delete %>
+          <a href="" class="our-all-Delete">Delete</a>
+
+        </div>
+  </div>
+
+      <div class="second-component-card">
+        <p class="username">User Name</p>
+        <%= image_tag "image33.png" %>
+      </div>
+    </div>
+
+       <div class="first-card-doc">
+      <div class="first-component-card">
+        <h1 class="user-card">User</h1>
+        <p>Description</p>
+
         <h1 class="user-card"> <%= project.name %></h1>
         <p><%= project.sku  %></p>
+
       </div>
       <div class="second-component-card">
         <p class="username">current_user.email</p>
