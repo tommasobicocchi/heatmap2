@@ -1,80 +1,51 @@
 
-<div class="navbar-heat">
+  <div class="navbar-heat">
 
-  <div class="nav-sx">
-    <%= image_tag "target(1).png" %>
-    <a href="#">HeatMap</a>
+    <div class="nav-sx">
+      <%= image_tag "target(1).png" %>
+      <a href="#">HeatMap</a>
 
-  </div>
-  <div class="nav-dx">
-    <div >
-      <a href="#">User</a>
-      <%= image_tag "image33.png" %>
     </div>
-    <div>
-     <a href="#">Setting</a>
-      <%= image_tag "setting.png", height: 30; %>
+    <div class="nav-dx">
+      <div >
+        <a href="#">User</a>
+        <%= image_tag "image33.png" %>
+      </div>
+      <div>
+       <a href="#">Setting</a>
+       <%= image_tag "setting.png", height: 30; %>
+     </div>
+   </div>
+  </div>
+
+  </div>
+
+  <div class="card-that-contain-all">
+    <div class="square">
+      <h1 class="project-title"> Project </h1>
     </div>
-    </div>
-  </div>
 
-</div>
+    <div class="under-square">
+     <h1 class='font-size'>My project</h1>
+     <h1 class="font-size border-bottom-header">Shared Project</h1>
+     <%= link_to "New Project", new_project_path, class: "font-size" %>
+   </div>
 
-<div class="card-that-contain-all">
-  <div class="square">
-    <h1 class="project-title"> Project </h1>
-  </div>
-
-  <div class="under-square">
-   <h1 class='font-size'>My project</h1>
-   <h1 class="font-size border-bottom-header">Shared Project</h1>
-   <h1 class="font-size">New Project</h1>
-  </div>
-
-  <div class="container-card">
+   <% @projects.each do |project| %>
+   <%=  link_to (project_documents_path(project.id)) do  %>
+   <div class="container-card">
     <div class="first-card-doc">
       <div class="first-component-card">
-        <h1 class="user-card">User</h1>
-        <p>Description</p>
+        <h1 class="user-card"> <%= project.name %></h1>
+        <p><%= project.sku  %></p>
       </div>
       <div class="second-component-card">
-        <p class="username">User Name</p>
+        <p class="username">current_user.email</p>
         <%= image_tag "image33.png" %>
       </div>
     </div>
-       <div class="first-card-doc">
-      <div class="first-component-card">
-        <h1 class="user-card">User</h1>
-        <p>Description</p>
-      </div>
-      <div class="second-component-card">
-        <p class="username">User Name</p>
-        <%= image_tag "image33.png" %>
-      </div>
-    </div>
-       <div class="first-card-doc">
-      <div class="first-component-card">
-        <h1 class="user-card">User</h1>
-        <p>Description</p>
-      </div>
-      <div class="second-component-card">
-        <p class="username">User Name</p>
-        <%= image_tag "image33.png" %>
-      </div>
-    </div>
-       <div class="first-card-doc">
-      <div class="first-component-card">
-        <h1 class="user-card">User</h1>
-        <p>Description</p>
-      </div>
-      <div class="second-component-card">
-        <p class="username">User Name</p>
-        <%= image_tag "image33.png" %>
-      </div>
-    </div>
-
+    <% end %>
+    <% end %>
 
   </div>
 
-
-</div>
