@@ -24,11 +24,11 @@
       </div>
 <% if params[:document_id].present?  %>
 
-<table class="table">
+<table class="table" id="tablex">
 <thead class="thead-dark">
   <tr>
     <% @headers.each do |element| %>
-    <td><%= element %></td>
+    <td class="<%= element %>"><%= element %></td>
     <% end %>
   </tr>
 </thead>
@@ -37,7 +37,7 @@
   <% @arrayofhash.each do |thing| %>
 <tr>
   <% thing.each do |key, value| %>
-  <td><%= value %></td>
+  <td class="<%= key %> "><%= value %></td>
   <% end %>
 </tr>
   <% end %>
