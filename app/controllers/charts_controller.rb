@@ -16,6 +16,14 @@ class ChartsController < ApplicationController
   def preview
     @document = Document.find(params[:document_id])
     @chart_type = params[:chart_type]
+    @chart = Chart.new(
+      data: {
+        headers: @document.csv_headers,
+        values:  @document.csv_data,
+      }
+    )
+    @chart.document = @document
+    @chart.save
   end
 
   private
