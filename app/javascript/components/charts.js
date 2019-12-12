@@ -152,14 +152,14 @@ var myChart = new Chart(ctx, {
     options: {
         legend: {
             labels: {
-                fontColor: "white",
+                fontColor: "black",
                 fontSize: 12
             }
         },
         scales: {
             yAxes: [{
                 ticks: {
-                    fontColor: "white",
+                    fontColor: "black",
                     fontSize: 12,
                     stepSize: 1,
                     beginAtZero: true
@@ -167,7 +167,7 @@ var myChart = new Chart(ctx, {
             }],
             xAxes: [{
                 ticks: {
-                    fontColor: "white",
+                    fontColor: "black",
                     fontSize: 12,
                     stepSize: 1,
                     beginAtZero: true
