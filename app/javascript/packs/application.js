@@ -1,21 +1,11 @@
 import "bootstrap";
-
-
-
-const loadCsv = () => {
-
-console.log('DOM completamente caricato e analizzato');
-
-}
-
-
-
-document.addEventListener('DOMContentLoaded', (event) => {
-     loadCsv();
-});
-
-
+import "chart.js";
 import {barChart, lineChart, doughnutChart} from "../plugin/init_chart"
+
+
+
+
+
 
 barChart();
 lineChart();
