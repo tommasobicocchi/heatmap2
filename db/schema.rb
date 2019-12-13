@@ -12,8 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2019_12_12_161530) do
 
-
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -77,7 +75,6 @@ ActiveRecord::Schema.define(version: 2019_12_12_161530) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["creator_id"], name: "index_blazer_queries_on_creator_id"
   end
-
 
   create_table "charts", force: :cascade do |t|
     t.jsonb "data"
