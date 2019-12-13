@@ -1,13 +1,38 @@
-<h2 class="text-center py 10" style="color: white;">Up D</h2>
+<div class="all-container-all">
+  <div class="container-of-form">
+<h2 class="text-center py 10" style="color: white;">Create a Project</h2>
 
-<div class="modal-card mx-auto text-center" style="width: 600px; padding: 20px; margin: 20px; text-decoration-color: black">
 <%= simple_form_for  @project do |f| %>
+
+<div class="entire-form mx-auto" style="width: 600px; padding: 20px; margin: 20px">
+<div class="form-inputs">
   <%= f.input :name %>
-  <%= f.input :sku %>
-  <%= f.button :submit %>
-<div class="button text-center" style="margin-top: 30px">
-<% end %>
+  <%= f.input :description %>
+
+<div style="text-align: center;">
+
+  <%= f.button :submit, "Create", class: "btn-formm our-beautiful-button" %>
+ </div>
+
+
+
+
+</div>
+ <% end %>
 </div>
 </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 

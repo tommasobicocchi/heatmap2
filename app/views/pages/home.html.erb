@@ -1,7 +1,6 @@
 <nav class="navbar">
   <div class="navbar-box">
    <%= link_to root_path do %>
-    <%=image_tag(("target.png"), :class =>"img-navbar")%>
     <div class="navabar-box-text">
     <h2 class="text-navbar">HeatMap</h2>
     <%end%>
@@ -10,11 +9,12 @@
 
   <div class="navbar-box">
     <div class="navabar-box-text">
-      <h2 class="text-navbar">Login</h2>
+      <% if current_user.nil? %>
+      <%= link_to "Login", new_user_session_path %>
+      <%else %>
+      <%= link_to "Logout", destroy_user_session_path%>
+      <% end %>
     </div>
-    <%= link_to new_user_session_path do %>
-    <%=image_tag(("login.png"), :class =>"img-navbar")%>
-    <% end %>
   </div>
 
 </nav>
