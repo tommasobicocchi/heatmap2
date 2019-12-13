@@ -1,5 +1,4 @@
 class ChartsController < ApplicationController
-
   def index
     @documents = Project.find(params[:project_id]).documents
     @charts = Chart.all
