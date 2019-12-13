@@ -1,6 +1,7 @@
 
   <div class="row">
     <div class="col-4">
+    <div class="scrollable-container">
       <div>
         <%= form_tag project_documents_path, class: "", method: :get do %>
         <%= text_field_tag :query,
@@ -17,6 +18,7 @@
         <% end %>
       </ul>
     </div>
+  </div>
 
     <div class="col-8">
       <div class="uploader">
