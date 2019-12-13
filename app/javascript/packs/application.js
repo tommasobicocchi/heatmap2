@@ -6,10 +6,8 @@ import '../vendor/stimulus';
 //console.log(selectfile);
 
 
-
 const selectcellindex = () => {
 const selectfile = document.querySelectorAll("td");
-console.log(selectfile);
  selectfile.forEach(element => element.addEventListener("click", (event) => {
     ennphatize(event.currentTarget.className);
     //ennphatize(selectfile[i].cellIndex);
@@ -33,6 +31,7 @@ selectcellindex();
 
 
 barChart(headers, data);
- lineChart(headers, data);
- doughnutChart(headers, data);
+lineChart(headers, data);
+doughnutChart(headers, data);
+
 

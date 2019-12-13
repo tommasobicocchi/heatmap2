@@ -1,16 +1,8 @@
 class ChartsController < ApplicationController
-  def new
-    @document = Document.find(params[:document_id])
-    @chart = Chart.new
-  end
 
-  def create
-    @chart = Chart.new(chart_params)
-    # we need `document_id` to associate review with corresponding restaurant
-    @document = document.find(params[:document_id])
-    @chart.document = @document
-    @chart.save
-    redirect_to document_path(@document)
+  def index
+    @documents = Project.find(params[:project_id]).documents
+    @charts = Chart.all
   end
 
   def update
@@ -25,11 +17,16 @@ class ChartsController < ApplicationController
     @chart = Chart.new(
       data: {
         headers: @document.csv_headers,
-        values:  @document.csv_data,
+        values:  @document.csv_data
       }
     )
     @chart.document = @document
     @chart.save
+  end
+
+  def destroy
+    @chart = Chart.find(params[:id])
+    @chart.destroy
   end
 
   private

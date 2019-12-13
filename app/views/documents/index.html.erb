@@ -1,7 +1,7 @@
 
-<div class="container">
   <div class="row">
     <div class="col-4">
+    <div class="scrollable-container">
       <div>
         <%= form_tag project_documents_path, class: "", method: :get do %>
         <%= text_field_tag :query,
@@ -18,6 +18,7 @@
         <% end %>
       </ul>
     </div>
+  </div>
 
     <div class="col-8">
       <div class="uploader">
@@ -26,41 +27,35 @@
         <%= f.input :link %>
         <%= f.submit %>
         <% end %>
-
-<div id="my-created-dropzone"
-     style="height: 100px; width: 100%; border: 2px solid rgba(0, 0, 0, 0.3)">
-</div>
-
+        <div id="my-created-dropzone"
+          style="height: 100px; width: 100%; border: 2px solid rgba(0, 0, 0, 0.3)">
+        </div>
       </div>
-<% if params[:document_id].present?  %>
+      <% if params[:document_id].present?  %>
+      <%= link_to "bar", charts_preview_path(document_id: params[:document_id], chart_type: "bar") %>
+      <%= link_to "line", charts_preview_path(document_id: params[:document_id], chart_type: "line") %>
+      <%= link_to "doughnut", charts_preview_path(document_id: params[:document_id], chart_type: "doughnut") %>
+      <div class="scrollable-container">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <% @headers.each do |element| %>
+              <td class="<%= element %>"><%= element %></td>
+              <% end %>
+            </tr>
+          </thead>
+          <tbody>
+            <% @arrayofhash.each do |thing| %>
+            <tr>
+              <% thing.each do |key, value| %>
+              <td class="<%= key %> "><%= value %></td>
+              <% end %>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <% end %>
+    </div>
+  </div>
 
-
-<%= link_to "bar", charts_preview_path(document_id: params[:document_id], chart_type: "bar") %>
-<%= link_to "line", charts_preview_path(document_id: params[:document_id], chart_type: "line") %>
-<%= link_to "doughnut", charts_preview_path(document_id: params[:document_id], chart_type: "doughnut") %>
-
-<table class="table">
-<thead class="thead-dark">
-  <tr>
-    <% @headers.each do |element| %>
-    <td class="<%= element %>"><%= element %></td>
-    <% end %>
-  </tr>
-</thead>
-
-<tbody>
-  <% @arrayofhash.each do |thing| %>
-<tr>
-  <% thing.each do |key, value| %>
-  <td class="<%= key %> "><%= value %></td>
-  <% end %>
-</tr>
-  <% end %>
-
-</tbody>
-</table>
-
-<% end %>
-</div>
-</div>
-</div>
