@@ -1,15 +1,17 @@
 <% @documents.each do |document| %>
-<div class="chart-container col-3" style=" justify-content: space-between; display: flex; height:20vh; width:40vw;">
+<div class="row m-3">
+<div class="chart-container col-4 flex-container">
+  <% document.charts.each  do |chart|%>
   <canvas data-controller="chart"
   data-chart-headers="<%= document.csv_headers.to_json %>"
   data-chart-data="<%= document.csv_data.to_json %>"
   data-chart-type="<%= @chart_type %>"
   width="200" height="200">
   </canvas>
-  <div>
-    <% document.charts.each  do |chart|%>
-    <p> <%= chart.description %> </p>
-    <% end %>
-  </div>
 </div>
+<div class="col-6">
+  <p><%= chart.description %> </p>
+  <% end %>
 <% end %>
+</div>
+</div>
