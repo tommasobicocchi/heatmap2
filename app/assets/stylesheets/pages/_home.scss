@@ -81,12 +81,13 @@ span {
 .card-that-contain-all {
     background: #0059D2;
     padding-bottom: 50px;
+
 }
 
 
 .first-component-card {
 color: #0059D2;
-margin-left: 20px;
+text-align: center;
 }
 
 
@@ -96,14 +97,11 @@ display: flex;
 align-items: center;
 }
 
-
 .first-component-card p {
 font-size: 500;
 }
 
-
-
-.username{
+.username {
   padding-left: 100px;
   font-family: "comfortaa";
   color: #0059D2;
@@ -111,6 +109,51 @@ font-size: 500;
   margin-right: 30px;
   font-size: 20px;
 }
+
+.our-all-Edit {
+  background-color:#FBA500;
+  border-radius: 4px;
+  padding: 15px;
+  font-size: 15px;
+  font-family: "comfortaa";
+  width: 80px;
+  margin-right: 15px;
+  color: white;
+  display: flex;
+  text-align: center;
+}
+
+.our-all-Edit a {
+margin-right: 10px;
+}
+
+.our-all-Delete {
+  background-color:#FBA500;
+  border-radius: 4px;
+  padding: 14px;
+  font-size: 15px;
+  font-family: "comfortaa";
+  width: 80px;
+  margin-right: 15px;
+  color: white;
+  display: flex;
+  text-align: center;
+}
+
+.our-all-Delete a {
+margin-right: 10px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.colour-buttom{
+  color:#FBA500;
+}
+
 
 
 // Specific CSS for your home-page
@@ -141,10 +184,6 @@ font-size: 500;
 
 .call-to-action{
   margin-right: 10px;
-}
-
-.call-to-action:hover{
-  border-bottom: 3px solid #0059D2;
 }
 
 .main-box-homepage{

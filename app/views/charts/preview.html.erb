@@ -5,4 +5,14 @@
   data-chart-type="<%= @chart_type %>"
   width="200" height="200">
   </canvas>
+  <div class="row">
+  <div class="large-4 large-centered columns">
+    <%= simple_form_for([@project, @document, @chart]) do |f| %>
+      <fieldset>
+        <%= f.input :description, as: :text, :input_html => { :cols => 5, :rows => 10 } %>
+        <%= f.submit "Submit", class: "button small radius" %>
+      </fieldset>
+    <% end %>
+  </div>
+</div>
 </div>

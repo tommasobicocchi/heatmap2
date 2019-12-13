@@ -1,6 +1,16 @@
 
   <div class="row">
     <div class="col-4">
+      <div>
+        <%= form_tag project_documents_path, class: "", method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form mr-2 ",
+          placeholder: "Search the table you prefer"
+          %>
+          <%= submit_tag "Search", class: "search-button" %>
+          <% end %>
+        </div>
       <ul>
         <% @documents.each do |document| %>
         <li> <%= link_to "#{document.link.url}", project_documents_path(document_id: document.id) %> </li>
