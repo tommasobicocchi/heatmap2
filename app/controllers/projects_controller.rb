@@ -1,11 +1,13 @@
   class ProjectsController < ApplicationController
   def index
     @projects = Project.all
+    if params[:project_id].present?
+      @project = Project.find(params[:project_id])
+      @project.destroy
+      redirect_to projects_path
+    end
   end
 
-  def show
-    @project = Project.find(params[:id])
-  end
 
   def new
     @project = Project.new
@@ -18,11 +20,16 @@
     redirect_to projects_path(@project)
   end
 
-  def destroy
-    @project = Project.find(params[:id])
-    @project.destroy
-    redirect_to projects_path
+
+def update
+  @project = Project.find(params[:id])
+  @project.update(project_params)
+  if @project.save
+    redirect_to projects_path(@project)
+  else
+    render 'index'
   end
+end
 
   def project_params
     params.require(:project).permit(:name, :sku)
