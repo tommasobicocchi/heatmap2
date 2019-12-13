@@ -10,9 +10,9 @@ class DocumentsController < ApplicationController
     @document = Document.where(project_id: params[:project_id])
     if params[:document_id].present?
       element_params = Document.find(params[:document_id])
-      @arrayofhash = element_params.to_data
+      @arrayofhash = element_params.to_csv
       @headers = @arrayofhash.first.keys
-      element_params.sum_hash
+      element_params.to_csv
       #@arrayofhash.get_headers
     end
   end

@@ -4,18 +4,9 @@ import "bootstrap";
 import '../vendor/stimulus';
 
 
-document.querySelectorAll('td').on('click', function() {
-    var $currentTable = $(this).closest('display-table');
-    var index = $(this).index();
-    $currentTable.find('td').removeClass('red');
-    $currentTable.find('tr').each(function() {
-        $(this).find('td').eq(index).addClass('red');
-    });
-});
 
 const selectcellindex = () => {
 const selectfile = document.querySelectorAll("td");
-console.log(selectfile);
  selectfile.forEach(element => element.addEventListener("click", (event) => {
     ennphatize(event.currentTarget.className);
     //ennphatize(selectfile[i].cellIndex);
@@ -34,7 +25,7 @@ selectcellindex();
 
 
 
-// barChart(headers, data);
-// lineChart();
-// doughnutChart();
+barChart(headers, data);
+lineChart(headers, data);
+doughnutChart(headers, data);
 
