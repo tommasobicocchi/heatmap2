@@ -22,7 +22,6 @@
   <div class="card-that-contain-all">
     <div class="square">
       <h1 class="project-title"> Projects </h1>
-    </div>
 
     <div class="under-square">
      <h1 class='font-size'>My projects</h1>
@@ -38,7 +37,7 @@
       <div class="first-component-card">
 
         <h1 class="user-card"> <%= project.name %></h1>
-        <p><%= project.sku  %></p>
+        <p><%= project.description %></p>
         <div class="buttons-container">
           <%=  link_to 'Edit', edit_project_path(project.id) , class: "our-all-Edit" %>
           <%#= link_to "Edit", edit_project_path(project) %>
@@ -51,14 +50,11 @@
         <%= image_tag "image33.png" %>
       </div>
     </div>
-
-
-
-
       </div>
 
     <% end %>
     <% end %>
-</div>sss
+    </div>
+  </div>
   </div>
 
