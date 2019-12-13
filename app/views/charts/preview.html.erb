@@ -13,8 +13,12 @@
     <%= simple_form_for([@project, @document, @chart]) do |f| %>
       <fieldset>
         <%= f.input :description, as: :text, :input_html => { :cols => 5, :rows => 13 } %>
+
+        <%= f.submit "Add Text", class: "btn btn-primary" %>
       </fieldset>
-        <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+    <%= link_to "Saved Charts", project_charts_path(@project), class: "button small radius" %>
+
   </div>
     <% end %>
 </div>
