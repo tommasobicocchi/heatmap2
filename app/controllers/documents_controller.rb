@@ -4,17 +4,30 @@ class DocumentsController < ApplicationController
 
 
   def index
-    @documents = Document.where(project_id: params[:project_id])
-    @documents = Document.all
-    @document = Document.new
-    @document = Document.where(project_id: params[:project_id])
-    if params[:document_id].present?
-      element_params = Document.find(params[:document_id])
-      @arrayofhash = element_params.to_data
-      @headers = @arrayofhash.first.keys
-      element_params.sum_hash
-      #@arrayofhash.get_headers
+      if params[:query].present?
+      @documents = Document.where('documents.link ILIKE ? AND CAST(documents.project_id AS text) ILIKE ?', "%#{params[:query]}%", "%#{params[:project_id]}%")
+      #redirect_to project_documents_path(@documents)
+      @document = Document.new
+      @document = Document.where(project_id: params[:project_id])
+      if params[:document_id].present?
+        create_requirements
+      end
+    else
+      @documents = Document.where(project_id: params[:project_id])
+      @documents = Document.all
+      @document = Document.new
+      @document = Document.where(project_id: params[:project_id])
+      if params[:document_id].present?
+        create_requirements
+      end
     end
+  end
+
+  def create_requirements
+    element_params = Document.find(params[:document_id])
+    @arrayofhash = element_params.to_csv
+    @headers = @arrayofhash.first.keys
+    element_params.csv_data
   end
 
   def create
@@ -45,9 +58,9 @@ class DocumentsController < ApplicationController
     csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
     CSV.parse(csv_file, csv_options) do |row|
       array << row.to_hash
-      end
-      array
     end
+    array
+  end
 
   def document_params
     params.require(:document).permit(:link, :project_id)
