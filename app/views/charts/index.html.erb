@@ -1,5 +1,6 @@
 <% @documents.each do |document| %>
 <div class="row m-3">
+
 <div class="chart-container col-4 flex-container">
   <% document.charts.each  do |chart|%>
   <canvas data-controller="chart"
@@ -9,9 +10,11 @@
   width="200" height="200">
   </canvas>
 </div>
-<div class="col-6">
+
+<div class="col-6 mt-5">
   <p><%= chart.description %> </p>
   <% end %>
+</div>
+
+</div>
 <% end %>
-</div>
-</div>
