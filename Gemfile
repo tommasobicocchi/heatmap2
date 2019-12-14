@@ -20,7 +20,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'activerecord-import'
 
-gem 'dropzonejs-rails'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
