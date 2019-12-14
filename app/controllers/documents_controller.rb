@@ -4,7 +4,6 @@ class DocumentsController < ApplicationController
 
 
   def index
-
       if params[:query].present?
       @documents = Document.where('documents.link ILIKE ? AND CAST(documents.project_id AS text) ILIKE ?', "%#{params[:query]}%", "%#{params[:project_id]}%")
       #redirect_to project_documents_path(@documents)
@@ -34,7 +33,13 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(document_params)
     @document.project_id = params[:project_id]
+
+
     if @document.save
+      respond_to do |format|
+          format.json{ render :json => @document }
+    end
+
       redirect_to project_documents_path(document_id: @document.id)
     else
       render 'index'
