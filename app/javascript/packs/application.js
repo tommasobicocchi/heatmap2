@@ -5,6 +5,7 @@ import '../vendor/stimulus';
 //const selectfile = document.querySelectorAll("td");
 //console.log(selectfile);
 
+
 const selectcellindex = () => {
 const selectfile = document.querySelectorAll("td");
  selectfile.forEach(element => element.addEventListener("click", (event) => {
@@ -34,6 +35,7 @@ selectCellIndex();
 
 
 barChart(headers, data);
- lineChart(headers, data);
- doughnutChart(headers, data);
+lineChart(headers, data);
+doughnutChart(headers, data);
+
 

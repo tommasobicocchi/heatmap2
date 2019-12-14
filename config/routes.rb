@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   resources :projects, only: [:create, :index, :show, :new, :destroy, :edit, :update] do
   resources :documents do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-    resources :charts, only: [:create, :index, :new, :update]
+    resources :charts, only: [:create, :new, :update]
   end
-  resources :charts, only: [ :show, :destroy ]
+  resources :charts, only: [ :index, :show, :destroy ]
 end
 end

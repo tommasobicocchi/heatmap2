@@ -32,7 +32,7 @@ def update
 end
 
   def project_params
-    params.require(:project).permit(:name, :sku)
+    params.require(:project).permit(:name, :description)
   end
 
 end

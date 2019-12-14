@@ -1,7 +1,7 @@
 
-<div class="container">
   <div class="row">
     <div class="col-4">
+    <div class="scrollable-container">
       <div>
         <%= form_tag project_documents_path, class: "", method: :get do %>
         <%= text_field_tag :query,
@@ -12,6 +12,7 @@
           <%= submit_tag "Search", class: "search-button" %>
           <% end %>
         </div>
+
         <ul>
           <% @documents.each do |document| %>
           <li> <%= link_to "#{document.link.url}", project_documents_path(document_id: document.id) %> </li>

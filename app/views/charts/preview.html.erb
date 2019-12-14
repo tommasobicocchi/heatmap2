@@ -1,3 +1,5 @@
+<div class="">
+<div class="row">
 <div class="chart-container col-3" style=" justify-content: space-between; display: flex; height:20vh; width:40vw;">
   <canvas data-controller="chart"
   data-chart-headers="<%= @document.csv_headers.to_json %>"
@@ -5,14 +7,19 @@
   data-chart-type="<%= @chart_type %>"
   width="200" height="200">
   </canvas>
-  <div class="row">
-  <div class="large-4 large-centered columns">
+</div>
+
+  <div class="w-50 text-center">
     <%= simple_form_for([@project, @document, @chart]) do |f| %>
       <fieldset>
-        <%= f.input :description, as: :text, :input_html => { :cols => 5, :rows => 10 } %>
-        <%= f.submit "Submit", class: "button small radius" %>
+        <%= f.input :description, as: :text, :input_html => { :cols => 5, :rows => 13 } %>
+
+        <%= f.submit "Add Text", class: "btn btn-primary" %>
       </fieldset>
+
     <% end %>
+    <%= link_to "Saved Charts", project_charts_path(@project), class: "button small radius" %>
   </div>
 </div>
 </div>
+

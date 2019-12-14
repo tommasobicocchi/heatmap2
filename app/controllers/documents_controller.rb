@@ -4,6 +4,7 @@ class DocumentsController < ApplicationController
 
 
   def index
+
       if params[:query].present?
       @documents = Document.where('documents.link ILIKE ? AND CAST(documents.project_id AS text) ILIKE ?', "%#{params[:query]}%", "%#{params[:project_id]}%")
       #redirect_to project_documents_path(@documents)
