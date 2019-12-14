@@ -63,7 +63,7 @@ class DocumentsController < ApplicationController
   end
 
   def document_params
-    params.require(:document).permit(:link, :project_id)
+    params.require(:document).permit(:link, :project_id, :feature_csv)
   end
 
 end
