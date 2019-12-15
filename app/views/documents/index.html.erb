@@ -1,12 +1,12 @@
 
 
 <div class="navbar-heat">
-
   <div class="nav-sx">
     <%= link_to root_path do %>
     <%= image_tag "target(1).png" %>
     <% end %>
   </div>
+
   <div class="nav-dx">
     <div >
        <%= link_to "Logout", destroy_user_session_path%>
@@ -72,7 +72,10 @@
       <i class="fas fa-file-export fa-2x"></i>
       </div>
     </div>
-      <table class="table table-content" >
+
+    <div class="table-scroll">
+      <table class="table table-content" data-controller="table">
+
         <thead class="thead-dark">
           <tr>
             <% @headers.each_with_index do |element, index| %>
@@ -102,6 +105,7 @@
       </table>
       <% end %>
       </div>
+    </div>
     </div>
   </div>
 
