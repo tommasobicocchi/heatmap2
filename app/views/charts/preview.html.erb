@@ -1,21 +1,29 @@
 <div class="">
-<div class="row">
-<div class="chart-container col-3" style=" justify-content: space-between; display: flex; height:20vh; width:40vw;">
-  <canvas data-controller="chart"
-  data-chart-headers="<%= @document.csv_headers.to_json %>"
-  data-chart-data="<%= @document.csv_data.to_json %>"
-  data-chart-type="<%= @chart_type %>"
-  width="200" height="200">
-  </canvas>
-</div>
+  <div class="row">
+    <div class="chart-container col-3" style=" justify-content: space-between; display: flex; height:20vh; width:40vw;">
+      <% if !params[:text].nil? %>
+      <canvas data-controller="chart"
+      data-chart-headers="<%= @document.csv_selection_headers(params[:text]).to_json %>"
+      data-chart-data="<%= @document.csv_selection_data(params[:text]).to_json %>"
+      data-chart-type="<%= @chart_type %>"
+      width="200" height="200">
+    </canvas>
+    <% else %>
+    <canvas data-controller="chart"
+    data-chart-headers="<%= @document.csv_headers.slice(1, @document.csv_headers.size - 1).to_json %>"
+    data-chart-data="<%= @document.csv_data.slice(1, @document.csv_headers.size - 1).to_json %>"
+    data-chart-type="<%= @chart_type %>"
+    width="200" height="200">
+    <% end %>
+  </div>
 
   <div class="w-50 text-center">
     <%= simple_form_for([@project, @document, @chart]) do |f| %>
-      <fieldset>
-        <%= f.input :description, as: :text, :input_html => { :cols => 5, :rows => 13 } %>
+    <fieldset>
+      <%= f.input :description, as: :text, :input_html => { :cols => 5, :rows => 13 } %>
 
-        <%= f.submit "Add Text", class: "btn btn-primary" %>
-      </fieldset>
+      <%= f.submit "Add Text", class: "btn btn-primary" %>
+    </fieldset>
 
     <% end %>
     <%= link_to "Saved Charts", project_charts_path(@project), class: "button small radius" %>

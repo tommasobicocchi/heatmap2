@@ -33,13 +33,7 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(document_params)
     @document.project_id = params[:project_id]
-
-
     if @document.save
-      respond_to do |format|
-          format.json{ render :json => @document }
-    end
-
       redirect_to project_documents_path(document_id: @document.id)
     else
       render 'index'
