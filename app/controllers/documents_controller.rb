@@ -27,6 +27,7 @@ class DocumentsController < ApplicationController
     element_params = Document.find(params[:document_id])
     @arrayofhash = element_params.to_csv
     @headers = @arrayofhash.first.keys
+    @rows = @arrayofhash.each.count
     element_params.csv_data
     @document.map { |document| document.rows = document.to_csv.size }
     @document.map { |document| document.columns = document.to_csv.first.keys.size}
@@ -39,7 +40,7 @@ class DocumentsController < ApplicationController
     if @document.save
       redirect_to project_documents_path(document_id: @document.id)
     else
-      render 'index'
+      redirect_to project_documents_path
     end
   end
 
@@ -66,7 +67,7 @@ class DocumentsController < ApplicationController
   end
 
   def document_params
-    params.require(:document).permit(:link, :project_id, :feature_csv)
+    params.require(:document).permit(:link, :project_id, :feature_csv, :name)
   end
 
 end
