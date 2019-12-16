@@ -37,8 +37,10 @@
       <ul>
         <% @documents.each do |document| %>
         <h4><li> <%= link_to "#{document.link.url}", project_documents_path(document_id: document.id) %> </li></h4>
+
         <p><%= document.name %></p>
-        <p>- How many columns ???<%=  %></p>
+        <p>- How many columns <%= document.to_csv.first.keys.size %>, and <%= document.to_csv.size  %></p>
+
         <% end %>
       </ul>
     </div>
