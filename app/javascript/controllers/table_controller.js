@@ -12,7 +12,7 @@ export default class extends Controller {
     //event.target.attributes.href.nodeValue.slice(0, -1).concat(`${this.columnIds.join()}`);
     event.target.href.slice(0, -1).concat(`${this.columnIds.join()}`);
     console.log(event.target.getAttribute('href'));
-    event.target.setAttribute('href',`${event.target.href.slice(0, -1).concat(`${this.columnIds.join()}`)}`)
+    event.target.setAttribute('href',`${event.target.href.concat(`${this.columnIds.join()}`)}`)
   }
 
   toggle(event) {

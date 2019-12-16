@@ -1,7 +1,7 @@
 <div class="">
   <div class="row">
     <div class="chart-container col-3" style=" justify-content: space-between; display: flex; height:20vh; width:40vw;">
-      <% if !params[:text].nil? %>
+      <% if !params[:text].empty? %>
       <canvas data-controller="chart"
       data-chart-headers="<%= @document.csv_selection_headers(params[:text]).to_json %>"
       data-chart-data="<%= @document.csv_selection_data(params[:text]).to_json %>"
