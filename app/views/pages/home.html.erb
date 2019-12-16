@@ -8,11 +8,14 @@
   </div>
 
   <div class="navbar-box">
-    <div class="navabar-box-text">
+  <div class="navabar-box-text">
       <% if current_user.nil? %>
-      <%= link_to "Login", new_user_session_path %>
+
+    <%= link_to "Login", new_user_session_path, class: "banana" %>
+
       <%else %>
-      <%= link_to "Logout", destroy_user_session_path%>
+
+      <%= link_to "Logout", destroy_user_session_path, class: "banana" %>
       <% end %>
     </div>
   </div>
@@ -26,19 +29,25 @@
 </div>
 <div class="under-main">
 <div>
-  <h5>Change the way you Deal with Databases.</h5>
-  <h5>With Heat <span class="span-color">Map</span> you can have a Clear View on Your Data.</h5>
+  <h5>Change the way you deal with databases.</h5>
+  <h5>With Heat <span class="span-color">Map</span> you can have a clear view on your data.</h5>
 </div>
 <div class="call-to-action-homepage">
   <%  if user_signed_in? %>
 
    <% else %>
 
- <%= link_to new_user_registration_path do %>
-  <p class="call-to-action">Sign Up</p>
-   <% end %>
+
+ <%= link_to "Sign up", new_user_registration_path, class: "btn btn-formm signup-btn "  %>
+
+
+
+
+
    <%end%>
-  <p class="call-to-action">Info</p>
+
+
+
 </div>
 </div>
 </div>

@@ -1,3 +1,29 @@
 // Import page-specific CSS files here.
 @import "home";
 
+
+
+.button-edit {
+  margin-bottom: 20px;
+  margin-left: 20px;
+  border: solid;
+  border-width: 2px;
+  display: flex;
+ background-color:#00b32d;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 15px;
+  font-family: "comfortaa";
+  width: 80px;
+  margin-right: 15px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+}
+.button-edit a {
+color: white;
+  text-decoration: none;
+
+  }
