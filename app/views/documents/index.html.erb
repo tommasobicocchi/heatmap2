@@ -36,7 +36,7 @@
       <h3 class="ml-4 my-4">This are all your files</h3>
       <ul>
         <% @documents.each do |document| %>
-        <h4><li> <%= link_to "#{document.link.url}", project_documents_path(document_id: document.id) %> </li></h4>
+        <h4><li> <%= link_to "#{document.first_name}", project_documents_path(document_id: document.id) %> </li></h4>
         <p>- How many columns <%= document.to_csv.first.keys.size %>, and <%= document.to_csv.size  %></p>
         <% end %>
       </ul>
