@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2019_12_16_140734) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,9 +114,10 @@ ActiveRecord::Schema.define(version: 2019_12_16_140734) do
     t.datetime "updated_at", precision: 6, null: false
     t.text "arrayofhash", default: [], array: true
     t.bigint "project_id", null: false
-    t.string "columns"
+    t.string "name"
     t.string "rows"
     t.string "first_name"
+    t.string "columns"
     t.index ["project_id"], name: "index_documents_on_project_id"
   end
 
