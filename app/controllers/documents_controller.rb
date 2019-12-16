@@ -28,6 +28,9 @@ class DocumentsController < ApplicationController
     @arrayofhash = element_params.to_csv
     @headers = @arrayofhash.first.keys
     element_params.csv_data
+    @document.map { |document| document.rows = document.to_csv.size }
+    @document.map { |document| document.columns = document.to_csv.first.keys.size}
+    #element_params.columns = element_params.to_csv.first.keys.size
   end
 
   def create
