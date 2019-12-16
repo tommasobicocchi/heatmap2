@@ -8,7 +8,7 @@
   </div>
   <div class="nav-dx">
     <div >
-       <%= link_to "Logout", destroy_user_session_path%>
+       <%= link_to "Logout", destroy_user_session_path, class: "btn btn-formm login-btn "%>
     </div>
     <div>
      <a href="#">Setting</a>
@@ -29,32 +29,56 @@
      <%= link_to "New Project", new_project_path, class: "font-size" %>
    </div>
 
+  <div class="container-flex">
    <% @projects.each do |project| %>
    <%=  link_to (project_documents_path(project.id)) do  %>
-   <div class="container-card">
+
+
     <div class="first-card-doc">
 
       <div class="first-component-card">
 
-        <h1 class="user-card"> <%= project.name %></h1>
+         <div class="second-component-card">
+          <%= image_tag "image33.png" %>
+        <p class="username">current_user.email</p>
+
+      </div>
+      <div class="user-card">
+        <h1> <%= project.name %></h1>
         <p><%= project.description %></p>
+      </div>
         <div class="buttons-container">
-          <%=  link_to 'Edit', edit_project_path(project.id) , class: "our-all-Edit" %>
+          <div class="button-edit">
+          <%=  link_to 'Edit', edit_project_path(project.id) , class: "" %>
+          </div>
           <%#= link_to "Edit", edit_project_path(project) %>
           <%#= link_to "Delete", project_path(project), method: :delete %>
-          <%=  link_to 'Delete', projects_path(project_id: project.id) , method: :delete, class: "our-all-Delete" %>
+           <div class="button-edit">
+          <%=  link_to 'Delete', projects_path(project_id: project.id) , method: :delete, class: "" %>
+          </div>
         </div>
-      </div>
-      <div class="second-component-card">
-        <p class="username">current_user.email</p>
-        <%= image_tag "image33.png" %>
       </div>
     </div>
       </div>
 
+
     <% end %>
     <% end %>
     </div>
+
   </div>
   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 

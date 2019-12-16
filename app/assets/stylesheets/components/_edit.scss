@@ -14,21 +14,18 @@ padding-top: 100px;
   font-family: comfortaa;
 }
 
-.our-beautiful-button {
-  background-color: white;
-  border-radius: 4px;
-  color: #0059D2 ;
+.our-beautiful-button{
+  background-color: #00b32d!important;
+  border-radius: 8px;
+  color: #0059D2;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-}
-
-.btn-formm {
- font-family: comfortaa;
- color: #0059D2;
- font-weight: bold;
- font-size: 20px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #00b32d;
+  transition: all 80ms ease-in-out 0s !important;
 }
 
