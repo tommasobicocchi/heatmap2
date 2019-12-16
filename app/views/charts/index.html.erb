@@ -1,22 +1,33 @@
-
+<div class="navbar-heat">
+  <div class="nav-sx">
+    <%= link_to root_path do %>
+    <%= image_tag "target(1).png" %>
+    <% end %>
+  </div>
+  <div class="nav-dx">
+    <div >
+      <%= link_to "Logout", destroy_user_session_path%>
+    </div>
+    <div>
+      <a href="#">Setting</a>
+    </div>
+  </div>
+</div>
 <% @documents.each do |document| %>
-<div class="row m-3">
-
-<div class="chart-container col-4 flex-container">
-  <% @charts.each  do |chart|%>
-  <canvas data-controller="chart"
-  data-chart-headers="<%= chart.data["headers"].to_json %>"
-  data-chart-data="<%= chart.data["values"].to_json %>"
-  data-chart-type="<%= chart.data["type"] %>"
-  width="200" height="200">
-  </canvas>
-</div>
-
-<div class="col-6 mt-5">
-  <p><%= chart.description %> </p>
-  <% end %>
-</div>
-
+<div class="row m-4">
+  <div class="chart-container col-4">
+    <% @charts.each  do |chart|%>
+    <canvas data-controller="chart"
+    data-chart-headers="<%= chart.data["headers"].to_json %>"
+    data-chart-data="<%= chart.data["values"].to_json %>"
+    data-chart-type="<%= chart.data["type"] %>"
+    width="200" height="200">
+    </canvas>
+  </div>
+  <div class="chart-container col-4 text-center">
+    <h1>Key Message of the Analysis</h1>
+    <p><%= chart.description %> </p>
+    <% end %>
+  </div>
 </div>
 <% end %>
-

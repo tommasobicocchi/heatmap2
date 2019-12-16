@@ -1,5 +1,6 @@
 import "chart.js";
 
+Chart.defaults.global.defaultFontFamily = 'Comfortaa';
 
 export const bar = (element, headers, data) => {
   var ctx = element.getContext('2d');
@@ -13,56 +14,67 @@ export const bar = (element, headers, data) => {
         data: data,
         // chart.js gets data as an array!
         backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)'
+        'white',
+        'white',
+        'white',
+        'white',
+        'white',
+        'white'
         ],
         borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)'
+        'white',
+        'white',
+        'white',
+        'white',
+        'white',
+        'white'
         ],
         borderWidth: 1
       }]
     },
     options: {
-        legend: {
-            labels: {
-                fontColor: "black",
-                fontSize: 12
-            }
-        },
-        scales: {
-            yAxes: [{
-                ticks: {
-                    fontColor: "black",
-                    fontSize: 12,
-                    stepSize: 1,
-                    beginAtZero: true
-                }
-            }],
-            xAxes: [{
-                ticks: {
-                    fontColor: "black",
-                    fontSize: 12,
-                    stepSize: 1,
-                    beginAtZero: true
-                }
+      legend: {
+        labels: {
+          fontColor: "white",
+          fontSize: 20
+        }
+      },
+      scales: {
+        yAxes: [{
+          display: true,
+          gridLines: {
+            display: false ,
+            color: "#FFFFFF"
+          },
+          ticks: {
+            fontColor: "white",
+            fontSize: 10,
+            stepSize: 1,
+            beginAtZero: true
+          }
+        }],
+        xAxes: [{
+          display: true,
+          gridLines: {
+            display: false ,
+            color: "#FFFFFF"
+          },
+          ticks: {
+            fontColor: "white",
+            fontSize: 16,
+            stepSize: 1,
+            beginAtZero: true
+          }
         }]
       }
     }
   })
 };
 
+
 export const line = (element, headers, data) => {
-var ctx = element.getContext('2d');
-var myChart = new Chart(ctx, {
+  var ctx = element.getContext('2d');
+  var myChart = new Chart(ctx, {
     type: 'line',
     data: {
       labels: headers,
@@ -71,48 +83,48 @@ var myChart = new Chart(ctx, {
         label: '# of Votes',
         data: data,
         // chart.js gets data as an array!
-        backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)'
-        ],
         borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)'
+        'white',
+        'white',
+        'white',
+        'white',
         ],
-        borderWidth: 1
+        borderWidth: 5
       }]
     },
     options: {
-        legend: {
-            labels: {
-                fontColor: "black",
-                fontSize: 12
-            }
-        },
-        scales: {
-            yAxes: [{
-                ticks: {
-                    fontColor: "black",
-                    fontSize: 12,
-                    stepSize: 1,
-                    beginAtZero: true
-                }
-            }],
-            xAxes: [{
-                ticks: {
-                    fontColor: "black",
-                    fontSize: 12,
-                    stepSize: 1,
-                    beginAtZero: true
-                }
+      legend: {
+        labels: {
+          fontColor: "white",
+          fontSize: 20
+        }
+      },
+      scales: {
+        yAxes: [{
+          display: true,
+          gridLines: {
+            display: false ,
+            color: "#FFFFFF"
+          },
+          ticks: {
+            fontColor: "white",
+            fontSize: 10,
+            stepSize: 1,
+            beginAtZero: true
+          }
+        }],
+        xAxes: [{
+          display: true,
+          gridLines: {
+            display: false ,
+            color: "#FFFFFF"
+          },
+          ticks: {
+            fontColor: "white",
+            fontSize: 16,
+            stepSize: 1,
+            beginAtZero: true
+          }
         }]
       }
     }
@@ -120,8 +132,8 @@ var myChart = new Chart(ctx, {
 };
 
 export const doughnut = (element, headers, data) => {
-var ctx = element.getContext('2d');
-var myChart = new Chart(ctx, {
+  var ctx = element.getContext('2d');
+  var myChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
       labels: headers,
@@ -131,47 +143,54 @@ var myChart = new Chart(ctx, {
         data: data,
         // chart.js gets data as an array!
         backgroundColor: [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)'
+        '#5C6584',
+        'white',
+        '#00D592',
+        '#8B99CB',
         ],
         borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)'
+        '#5C6584',
+        'white',
+        '#00D592',
+        '#8B99CB',
         ],
         borderWidth: 1
       }]
     },
     options: {
-        legend: {
-            labels: {
-                fontColor: "black",
-                fontSize: 12
-            }
-        },
-        scales: {
-            yAxes: [{
-                ticks: {
-                    fontColor: "black",
-                    fontSize: 12,
-                    stepSize: 1,
-                    beginAtZero: true
-                }
-            }],
-            xAxes: [{
-                ticks: {
-                    fontColor: "black",
-                    fontSize: 12,
-                    stepSize: 1,
-                    beginAtZero: true
-                }
+      cutoutPercentage: 85,
+      legend: {
+        labels: {
+          fontColor: "white",
+          fontSize: 20
+        }
+      },
+      scales: {
+        yAxes: [{
+          display: true,
+          gridLines: {
+            display: false ,
+            color: "#FFFFFF"
+          },
+          ticks: {
+            fontColor: "white",
+            fontSize: 10,
+            stepSize: 1,
+            beginAtZero: true
+          }
+        }],
+        xAxes: [{
+          display: true,
+          gridLines: {
+            display: false ,
+            color: "#FFFFFF"
+          },
+          ticks: {
+            fontColor: "white",
+            fontSize: 16,
+            stepSize: 1,
+            beginAtZero: true
+          }
         }]
       }
     }
