@@ -2,7 +2,7 @@ import "chart.js";
 
 Chart.defaults.global.defaultFontFamily = 'Comfortaa';
 
-export const bar = (element, headers, data) => {
+export const bar = (element, headers, data, title) => {
   var ctx = element.getContext('2d');
   var myChart = new Chart(ctx, {
     type: 'bar',
@@ -10,7 +10,7 @@ export const bar = (element, headers, data) => {
       labels: headers,
       // these are the headers
       datasets: [{
-        label: '# of Votes',
+        label: title,
         data: data,
         // chart.js gets data as an array!
         backgroundColor: [
@@ -34,7 +34,7 @@ export const bar = (element, headers, data) => {
     },
     options: {
       legend: {
-        display: true,
+        display: false,
         labels: {
           fontColor: "white",
           fontSize: 20
@@ -73,7 +73,7 @@ export const bar = (element, headers, data) => {
 };
 
 
-export const line = (element, headers, data) => {
+export const line = (element, headers, data, title) => {
   var ctx = element.getContext('2d');
   var myChart = new Chart(ctx, {
     type: 'line',
@@ -81,7 +81,7 @@ export const line = (element, headers, data) => {
       labels: headers,
       // these are the headers
       datasets: [{
-        label: '# of Votes',
+        label: title,
         data: data,
         // chart.js gets data as an array!
         borderColor: [
@@ -95,6 +95,7 @@ export const line = (element, headers, data) => {
     },
     options: {
       legend: {
+        display: false,
         labels: {
           fontColor: "white",
           fontSize: 20
@@ -132,7 +133,7 @@ export const line = (element, headers, data) => {
   })
 };
 
-export const doughnut = (element, headers, data) => {
+export const doughnut = (element, headers, data, title) => {
   var ctx = element.getContext('2d');
   var myChart = new Chart(ctx, {
     type: 'doughnut',
@@ -140,7 +141,7 @@ export const doughnut = (element, headers, data) => {
       labels: headers,
       // these are the headers
       datasets: [{
-        label: '# of Votes',
+        label: title,
         data: data,
         // chart.js gets data as an array!
         backgroundColor: [
