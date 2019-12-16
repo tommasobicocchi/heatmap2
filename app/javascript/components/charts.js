@@ -34,6 +34,7 @@ export const bar = (element, headers, data) => {
     },
     options: {
       legend: {
+        display: true,
         labels: {
           fontColor: "white",
           fontSize: 20
@@ -180,7 +181,7 @@ export const doughnut = (element, headers, data) => {
           }
         }],
         xAxes: [{
-          display: true,
+          display: false,
           gridLines: {
             display: false ,
             color: "#FFFFFF"
