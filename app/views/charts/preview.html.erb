@@ -18,8 +18,8 @@
     <h3>EMEA Omnichannel Analysis</h3>
   </div>
 </div>
-<div class="row p-5">
-  <div class="chart-container col-6">
+<div class="row p-5 justify-content-around">
+  <div class="chart-container col-5">
     <% if !params[:text].empty? %>
     <canvas data-controller="chart"
     data-chart-headers="<%= @document.csv_selection_headers(params[:text]).to_json %>"
