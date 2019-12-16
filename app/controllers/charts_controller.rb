@@ -13,7 +13,7 @@ class ChartsController < ApplicationController
       @document = Document.find(params[:document_id])
       @project = @document.project
       @chart_type = params[:chart_type]
-    if !params[:text].nil?
+    if !params[:text].empty?
       @chart = Chart.new(
         data: {
           headers: csv_selection(params[:text], @document.csv_headers),
