@@ -7,11 +7,11 @@ export default class extends Controller {
   connect() {
     console.log(this.data.get("type"))
     if (this.data.get("type") === "line") {
-      line(this.element, this.headers, this.values)
+      line(this.element, this.headers, this.values, this.title)
     } else if (this.data.get("type") === "bar") {
-      bar(this.element, this.headers, this.values)
+      bar(this.element, this.headers, this.values, this.title)
     } else {
-      doughnut(this.element, this.headers, this.values)
+      doughnut(this.element, this.headers, this.values, this.title)
     }
   }
 
@@ -22,6 +22,15 @@ export default class extends Controller {
       return "bar"
     }
   }
+
+  get title() {
+    if (this.data.has("title")) {
+      return this.data.get("title") // Gonna do switch on this value, no if else statement.
+    } else {
+      return "My new chart"
+    }
+  }
+
 
   get headers() {
     if (this.data.has("headers")) {

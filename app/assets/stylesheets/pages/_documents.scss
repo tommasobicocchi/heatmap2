@@ -1,0 +1,124 @@
+.flex-container {
+  padding: 30px;
+  display: flex;
+}
+
+.uploader label {
+  display: none;
+}
+
+body {
+  background-color: #0059d2;
+  color: white;
+}
+
+.form-height {
+  height: 350px;
+}
+
+.text-field {
+  padding: 8px;
+  margin: 20px;
+  border-radius: 4px;
+}
+
+
+.scrollable-container ul {
+  list-style-type: none;
+}
+
+.scrollable-container li a {
+  text-decoration: none;
+  color: white;
+}
+
+.scrollable-container h4 {
+  font-size: 22px;
+  font-weight: normal;
+}
+
+.chart-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 30px;
+}
+
+.chart-item {
+  display: flex;
+  align-items: center;
+}
+
+.chart-links a {
+  font-size: 22px;
+  padding: 8px;
+  color: #fcf7f8;
+  font-weight: 300;
+}
+
+.chart-links .ancor-icon {
+  margin-left: 8px;
+}
+
+.scrollable-container {
+    width: 400px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.table-scroll {
+  overflow: auto;
+  height: 500px;
+}
+
+.head-cell {
+  position: sticky;
+  top: 0;
+  width: 150px;
+  height: 49px;
+  color: white;
+  box-shadow: inset 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  border: solid 1px #000000;
+  background-color: #FFB44A;
+}
+
+
+
+.cell-border {
+  border: 1px solid black;
+   background-color: #fcf7f8;
+}
+
+.cell-border:first-child {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.chart-text {
+margin: auto;
+}
+
+.title-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: #0059D2;
+  width: 1400px;
+  height: 106px;
+  border-radius: 8px;
+}
+ .title-name h3 {
+  margin: 0;
+ }
+
+ .text-field-position {
+  position: relative;
+  top: 200px;
+  left: 32px;
+ }
+
+ .text-field-position textarea {
+  border-radius: 16px;
+  color: #0059D2;
+ }

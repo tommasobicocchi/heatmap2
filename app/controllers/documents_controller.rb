@@ -1,10 +1,11 @@
 require 'csv'
+require 'carrierwave/orm/activerecord'
+
 
 class DocumentsController < ApplicationController
 
 
   def index
-
       if params[:query].present?
       @documents = Document.where('documents.link ILIKE ? AND CAST(documents.project_id AS text) ILIKE ?', "%#{params[:query]}%", "%#{params[:project_id]}%")
       #redirect_to project_documents_path(@documents)
@@ -28,16 +29,21 @@ class DocumentsController < ApplicationController
     element_params = Document.find(params[:document_id])
     @arrayofhash = element_params.to_csv
     @headers = @arrayofhash.first.keys
+    @rows = @arrayofhash.each.count
     element_params.csv_data
+    @document.map { |document| document.rows = document.to_csv.size }
+    @document.map { |document| document.columns = document.to_csv.first.keys.size}
+    #element_params.columns = element_params.to_csv.first.keys.size
   end
 
   def create
     @document = Document.new(document_params)
+    @document.first_name = params["document"]['link'].original_filename
     @document.project_id = params[:project_id]
     if @document.save
       redirect_to project_documents_path(document_id: @document.id)
     else
-      render 'index'
+      redirect_to project_documents_path
     end
   end
 
@@ -64,7 +70,7 @@ class DocumentsController < ApplicationController
   end
 
   def document_params
-    params.require(:document).permit(:link, :project_id)
+    params.require(:document).permit(:link, :project_id, :feature_csv, :name)
   end
 
 end

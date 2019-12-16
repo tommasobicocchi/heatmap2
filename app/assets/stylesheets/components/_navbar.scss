@@ -3,7 +3,12 @@
     width: 100vw;
     justify-content: space-between;
     background: #0059D2;
-    padding: 25px;
+    padding: 16px;
+}
+
+.navbar-sticky {
+  position: sticky;
+  top: 0;
 }
 
 .nav-dx {

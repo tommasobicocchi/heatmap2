@@ -24,10 +24,14 @@ const ennphatize = (x) => {
  firstCellColumn.forEach(element => element.classList.add('blue'));
 };
 
-selectcellindex();
 
+const selectCellIndex = () => {
+  const array = [];
+  const selectfile = document.querySelectorAll("#header");
+  const selectfileselection = selectfile.forEach(element => array.push(element.cellIndex));
+}
 
-
+selectCellIndex();
 
 
 barChart(headers, data);
