@@ -7,7 +7,4 @@ class CsvUploader < CarrierWave::Uploader::Base
     super
     return file
   end
-
-
-
 end

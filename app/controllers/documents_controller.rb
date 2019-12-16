@@ -38,7 +38,7 @@ class DocumentsController < ApplicationController
 
   def create
     @document = Document.new(document_params)
-    @document.first_row = params["document"]['link'].original_filename
+    @document.first_name = params["document"]['link'].original_filename
     @document.project_id = params[:project_id]
     if @document.save
       redirect_to project_documents_path(document_id: @document.id)
