@@ -1,7 +1,7 @@
 
 <div class="all-container-all">
   <div class="container-of-form">
-<h2 class="text-center py 10" style="color: white;">Log In</h2>
+<h2 class="text-center py 10" style="color: white;">Log in to HeatMap</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 <div class="entire-form mx-auto" style="width: 600px; padding: 20px; margin: 20px">
@@ -16,11 +16,10 @@
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
 
-  <div style="text-align: center;">
+  <div class="btn-login-div" style="text-align: center;">
 
-<div class="our-beautiful-button" style="margin-top: 30px;">
-    <%= f.button :submit, "Log in", class: "btn-formm" %>
-</div>
+    <%= f.button :submit, "Log in", class: "btn-formm login-btn"  %>
+
 </div>
 <% end %>
 </div>

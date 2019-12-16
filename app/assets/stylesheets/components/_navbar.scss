@@ -15,28 +15,17 @@
   display:flex;
   align-items:center;
   display: flex;
+  padding-right:50px;
 }
 
 .nav-sx {
   justify-content: space-between;
 }
 
-.nav-dx img {
-  height: 30px;
-  margin-left: 15px;
-}
-
 .nav-sx img {
-  height: 50px;
+  height: 70px;
 }
 
-.nav-sx a {
-color: white;
-text-decoration: none;
-font-weight: regular;
-font-family: comfortaa;
-
-}
 
 .nav-dx a {
  color: white;
@@ -44,8 +33,10 @@ font-family: comfortaa;
  font-weight: bold;
  font-family: comfortaa;
  justify-content: space-between;
- margin-left: 15px;
+ margin-left: 55px;
+ font-size: 20px;
 }
+
 
 
 
@@ -55,7 +46,7 @@ font-family: comfortaa;
 .navbar {
   display: flex;
   justify-content: space-beetwen;
-  background-color: white;
+  background-color: #0059D2;
 }
 
 .navbar-box{
@@ -66,11 +57,21 @@ font-family: comfortaa;
   padding-top:5px;
   margin: 10px;
   margin-left: 10px;
-}
+  a {
+    text-decoration: none;
+  }
+  h2{
+  font-size:30px;
+  color:white;
+  }
+ }
+
+
 
 .text-navbar{
   font-size: 20px;
   font-family: comfortaa;
+  font-weight:bold;
 }
 
 .img-navbar{
@@ -78,6 +79,63 @@ font-family: comfortaa;
   height: 60px;
   margin-right: 10px;
 }
+
+.one-more-button {
+    //position: relative;
+    //width: auto;
+    //color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-size: 14px;
+
+    margin: 0px;
+    border-radius: 8px;
+    //transition: all 80ms ease-in-out 0s;
+    padding: 12px 16px;
+    border-width: 1px;
+    border-style: solid;
+    border-color:#0059D2;
+    margin: 0px;
+    color: white;
+    }
+
+
+     a.banana {
+      color: white;
+      background-color: #003986;
+      cursor: pointer;
+      font-size: 14px;
+
+      margin: 0px;
+      border-radius: 3px;
+      //transition: all 80ms ease-in-out 0s;
+      padding: 12px 16px;
+      border-width: 2px;
+      border-style: solid;
+
+      margin: 0px;
+      color: white;
+      transition: 0.3s;
+      text-decoration:none!important;
+      border-radius:8px;
+
+    }
+
+
+   a.banana:hover {
+    color: #003986;
+        background-color: white;
+        border-color: white;
+      text-decoration:none!important;
+      font-weight: bold;
+      font-family:comfortaa;
+
+    }
+
+
+
+
+
+
 
 
 
