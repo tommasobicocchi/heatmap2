@@ -13,42 +13,35 @@
     </div>
   </div>
 </div>
-<div class = "text-center">
-  <%= simple_form_for([@project, @document, @chart]) do |f| %>
-  <fieldset>
-    <%= f.input :name, as: :string %>
-    <%= f.submit "Add title", class: "btn btn-primary" %>
-  </fieldset>
-  <% end  %>
+<div class="d-flex justify-content-center m-5">
+  <div class="title-name">
+    <h3>EMEA Omnichannel Analysis</h3>
+  </div>
 </div>
-<div class="">
-  <div class="row">
-    <div class="chart-container col-6" style=" justify-content: space-between; display: flex; height:20vh; width:40vw;">
-      <% if !params[:text].empty? %>
-      <canvas data-controller="chart"
-              data-chart-title="<%= @chart_title %>"
-              data-chart-headers="<%= @document.csv_selection_headers(params[:text]).to_json %>"
-              data-chart-data="<%= @document.csv_selection_data(params[:text]).to_json %>"
-              data-chart-type="<%= @chart_type %>"
-              width="200" height="200">
-      </canvas>
-      <% else %>
-      <canvas data-controller="chart"
-              data-chart-title="<%= @chart_title %>"
-              data-chart-headers="<%= @document.csv_headers.slice(1, @document.csv_headers.size - 1).to_json %>"
-              data-chart-data="<%= @document.csv_data.slice(1, @document.csv_headers.size - 1).to_json %>"
-              data-chart-type="<%= @chart_type %>"
-              width="200" height="200">
-      <% end %>
-    </div>
-    <div class="w-50 text-center">
-      <%= simple_form_for([@project, @document, @chart]) do |f| %>
-      <fieldset>
-        <%= f.input :description, as: :text, :input_html => { :cols => 5, :rows => 13 } %>
-        <%= f.submit "Add Text", class: "btn btn-primary" %>
-      </fieldset>
-      <% end %>
-      <%= link_to "Saved Charts", project_charts_path(@project), class: "button small radius" %>
-    </div>
+<div class="row p-5">
+  <div class="chart-container col-6">
+    <% if !params[:text].empty? %>
+    <canvas data-controller="chart"
+    data-chart-headers="<%= @document.csv_selection_headers(params[:text]).to_json %>"
+    data-chart-data="<%= @document.csv_selection_data(params[:text]).to_json %>"
+    data-chart-type="<%= @chart_type %>"
+    width="200" height="200">
+    </canvas>
+    <% else %>
+    <canvas data-controller="chart"
+    data-chart-headers="<%= @document.csv_headers.slice(1, @document.csv_headers.size - 1).to_json %>"
+    data-chart-data="<%= @document.csv_data.slice(1, @document.csv_headers.size - 1).to_json %>"
+    data-chart-type="<%= @chart_type %>"
+    width="200" height="200">
+    <% end %>
+  </div>
+  <div class="col-5 text-center text-field-position">
+    <%= simple_form_for([@project, @document, @chart]) do |f| %>
+    <fieldset>
+      <%= f.input :description, as: :text, :input_html => { :cols => 5, :rows => 8 } %>
+      <%= f.submit "Add Text", class: "btn btn-primary" %>
+    <%= link_to "Saved Charts", project_charts_path(@project), class: "btn btn-primary" %>
+    </fieldset>
+    <% end %>
   </div>
 </div>
