@@ -182,7 +182,7 @@ export const doughnut = (element, headers, data, title) => {
           }
         }],
         xAxes: [{
-          display: true,
+          display: false,
           gridLines: {
             display: false ,
             color: "#FFFFFF"
