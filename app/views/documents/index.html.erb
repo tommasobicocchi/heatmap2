@@ -37,7 +37,8 @@
       <ul>
         <% @documents.each do |document| %>
         <h4><li> <%= link_to "#{document.link.url}", project_documents_path(document_id: document.id) %> </li></h4>
-        <p>- How many columns ???</p>
+        <p><%= document.name %></p>
+        <p>- How many columns ???<%=  %></p>
         <% end %>
       </ul>
     </div>
@@ -45,6 +46,7 @@
     <div class="col-7 text-center ml-5" data-controller="table">
       <div class="uploader" data-controller="dropzone" data-dropzone-accepted-files="text/csv" >
         <%= simple_form_for(Document.new, :url => { :action => "create" })  do |f| %>
+        <%= f.input :name, placeholder: "Name of the document"%>
         <%= f.input :link, input_html: { class: 'dropzone form-height' }, data: { target: 'dropzone.input' } %>
         <%= f.submit %>
         <% end %>
