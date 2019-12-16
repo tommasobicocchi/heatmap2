@@ -3,9 +3,9 @@
     <%= link_to root_path do %>
     <%= image_tag "target(1).png" %>
     <% end %>
-    <%= link_to 'Back', :back %>
   </div>
   <div class="nav-dx">
+   <span> <%= link_to 'Back', :back %></span>
     <div >
       <%= link_to "Logout", destroy_user_session_path%>
     </div>
@@ -14,27 +14,10 @@
     </div>
   </div>
 </div>
-<<<<<<< HEAD
-<% @documents.each do |document| %>
-<div class="row m-4">
-  <div class="chart-container col-4">
-    <% @charts.each  do |chart|%>
-    <canvas data-controller="chart"
-    data-chart-headers="<%= chart.data["headers"].to_json %>"
-    data-chart-data="<%= chart.data["values"].to_json %>"
-    data-chart-type="<%= chart.data["type"] %>"
-    width="200" height="200">
-    </canvas>
-  </div>
-  <div class="chart-container col-4 text-center">
-    <h1>Key Message of the Analysis</h1>
-    <p><%= chart.description %> </p>
-    <% end %>
-  </div>
-=======
-<div class="row w-75">
+
+<div class="row w-100">
   <% @charts.each  do |chart|%>
-    <div class="col-6 m-5">
+    <div class="col-5 m-5">
       <canvas data-controller="chart"
               data-chart-headers="<%= chart.data["headers"].to_json %>"
               data-chart-data="<%= chart.data["values"].to_json %>"
@@ -43,9 +26,9 @@
       </canvas>
     </div>
     <div class="col-5 chart-text">
-      <h2>Key Message of the Analysis</h2>
+
+      <h2><%= @project.name %></h2>
       <p><%= chart.description %> </p>
     </div>
->>>>>>> afdc9e0baf10f8a072868db591c11ffb4c6ae897
   <% end %>
 </div>
