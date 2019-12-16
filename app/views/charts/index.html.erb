@@ -13,21 +13,19 @@
     </div>
   </div>
 </div>
-<% @documents.each do |document| %>
 <div class="row m-4">
-  <div class="chart-container col-4">
-    <% @charts.each  do |chart|%>
-    <canvas data-controller="chart"
-    data-chart-headers="<%= chart.data["headers"].to_json %>"
-    data-chart-data="<%= chart.data["values"].to_json %>"
-    data-chart-type="<%= chart.data["type"] %>"
-    width="200" height="200">
-    </canvas>
-  </div>
-  <div class="chart-container col-4 text-center">
-    <h1>Key Message of the Analysis</h1>
-    <p><%= chart.description %> </p>
-    <% end %>
-  </div>
+  <% @charts.each  do |chart|%>
+    <div class="col-6">
+      <canvas data-controller="chart"
+              data-chart-headers="<%= chart.data["headers"].to_json %>"
+              data-chart-data="<%= chart.data["values"].to_json %>"
+              data-chart-type="<%= chart.data["type"] %>"
+              width="200" height="200">
+      </canvas>
+    </div>
+    <div class="col-4 chart-text">
+      <h2>Key Message of the Analysis</h2>
+      <p><%= chart.description %> </p>
+    </div>
+  <% end %>
 </div>
-<% end %>

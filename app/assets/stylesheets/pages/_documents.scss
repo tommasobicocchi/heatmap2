@@ -94,4 +94,32 @@ body {
   text-transform: uppercase;
 }
 
+.chart-text {
+margin: auto;
+}
 
+.title-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: #0059D2;
+  width: 1400px;
+  height: 106px;
+  border-radius: 8px;
+}
+ .title-name h3 {
+  margin: 0;
+ }
+
+ .text-field-position {
+  position: relative;
+  top: 200px;
+ }
+
+ .text-field-position textarea {
+  padding: 0;
+  margin: 0;
+  border-radius: 16px;
+  color: #0059D2;
+ }
