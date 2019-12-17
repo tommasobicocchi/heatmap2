@@ -18,7 +18,7 @@
     <h3>EMEA Omnichannel Analysis</h3>
   </div>
 </div>
-<div class="row p-5 justify-content-around">
+<div class="row p-5 justify-content-around w-100">
   <div class="chart-container col-5">
     <% if !params[:text].empty? %>
     <canvas data-controller="chart"
@@ -39,8 +39,8 @@
     <%= simple_form_for([@project, @document, @chart]) do |f| %>
     <fieldset>
       <%= f.input :description, as: :text, :input_html => { :cols => 5, :rows => 8 } %>
-      <%= f.submit "Add Text", class: "btn btn-primary" %>
-    <%= link_to "Saved Charts", project_charts_path(@project), class: "btn btn-primary" %>
+      <%= f.submit "Add Text", class: "btn btn-primary m-2" %>
+    <%= link_to "Saved Charts", project_charts_path(@project), class: "btn btn-primary m-2" %>
     </fieldset>
     <% end %>
   </div>
