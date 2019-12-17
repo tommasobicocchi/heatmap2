@@ -49,6 +49,7 @@
             <div class="">
               <%=  link_to 'Delete', projects_path(project_id: project.id) , method: :delete, class: "button-edit" %>
             </div>
+            <i class="fas fa-circle fa-lg"></i>
           </div>
         </div>
       </div>
@@ -62,9 +63,15 @@
                 <img src="<%= project.user.photo.url %>" alt="">
 
               </div>
-               <h4>Project owned by</h4>
+
                <p class="username"> <%= current_user.email %></p>
+
+               <h4><%= project.name %></h4>
+               <div class="mr-2 center space-between">
+
             <p><%= project.description %></p>
+              <i class="fas fa-circle fa-lg"></i>
+            </div>
           </div>
 
       </div>
