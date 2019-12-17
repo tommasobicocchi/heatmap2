@@ -24,8 +24,8 @@ class ChartsController < ApplicationController
     else
       @chart = Chart.new(
         data: {
-          headers: @document.csv_headers,
-          values:  @document.csv_data,
+          headers: @document.csv_headers.drop(1),
+          values:  @document.csv_data.drop(1),
           type: params[:chart_type]
         }
         )

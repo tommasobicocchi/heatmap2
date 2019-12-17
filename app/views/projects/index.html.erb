@@ -19,18 +19,21 @@
 
 
 
-  <div class="card-that-contain-all">
+
+  <div class="card-that-contain-all" >
     <div class="square">
       <h1 class="project-title"> Projects </h1>
 
     <div class="under-square">
-     <h1 class='font-size'>My projects</h1>
-     <h1 class="font-size border-bottom-header">Shared Projects</h1>
-     <%= link_to "New Project", new_project_path, class: "font-size" %>
+      <%= link_to "My projects", projects_path(Project.where(user_id: current_user.id), text: "My projects"), class: "font-size" %>
+     <%= link_to "All projects", projects_path, class: "font-size" %>
+     <%= link_to "New project", new_project_path, class: "font-size" %>
    </div>
 
   <div class="container-flex">
    <% @projects.each do |project| %>
+
+   <% if current_user.id == project.user_id %>
    <%=  link_to (project_documents_path(project.id)) do  %>
 
 
@@ -40,8 +43,7 @@
 
          <div class="second-component-card">
           <%= image_tag "image33.png" %>
-        <p class="username">current_user.email</p>
-
+        <p class="username"> <%= current_user.email %></p>
       </div>
       <div class="user-card">
         <h1> <%= project.name %></h1>
@@ -59,11 +61,59 @@
         </div>
       </div>
     </div>
+    <% end %>
+
+
+    <% else %>
+
+       <%=  link_to (project_charts_path(project.id)) do  %>
+
+
+    <div class="first-card-doc">
+
+      <div class="first-component-card">
+
+         <div class="second-component-card">
+          <%= image_tag "image33.png" %>
+        <p class="username"> <%= project.user.email %></p>
+
+      </div>
+      <div class="user-card">
+        <h1> <%= project.name %></h1>
+        <p><%= project.description %></p>
+      </div>
+        <div class="buttons-container">
+          <div class="button-edit">
+          <%=  link_to 'Edit', class: "" %>
+          </div>
+          <%#= link_to "Edit", edit_project_path(project) %>
+          <%#= link_to "Delete", project_path(project), method: :delete %>
+           <div class="button-edit">
+          <%=  link_to 'Delete', method: :delete, class: "" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+
+
+
+
+
+
+    <% end %>
+
+
+
+
+
+   <% end %>
+
+
       </div>
 
 
-    <% end %>
-    <% end %>
     </div>
 
   </div>
