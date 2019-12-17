@@ -29,7 +29,7 @@
       <div class="first-card-doc">
         <div class="first-component-card">
           <div class="second-component-card">
-            <img src="http://res.cloudinary.com/dwdf2inmo/<%= current_user[:photo] %>" alt="">
+            <img src="<%= project.user.photo.url %>" alt="">
             <p class="username"> <%= current_user.email %></p>
           </div>
 
@@ -59,7 +59,7 @@
 
              <div class="none-user-card">
               <div class="none-component-card">
-                <img src="http://res.cloudinary.com/dwdf2inmo/<%= current_user[:photo] %>" alt="">
+                <img src="<%= project.user.photo.url %>" alt="">
                 <p class="username"> <%= current_user.email %></p>
               </div>
                <h4>Project owned by</h4>
