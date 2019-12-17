@@ -16,9 +16,9 @@ class DocumentsController < ApplicationController
       end
     else
       @documents = Document.where(project_id: params[:project_id])
-      @documents = Document.all
-      @document = Document.new
-      @document = Document.where(project_id: params[:project_id])
+      # @documents = Document.all
+      @document_new = Document.new
+      @document = Document.find_by(project_id: params[:project_id])
       if params[:document_id].present?
         create_requirements
       end
@@ -29,10 +29,9 @@ class DocumentsController < ApplicationController
     element_params = Document.find(params[:document_id])
     @arrayofhash = element_params.to_csv
     @headers = @arrayofhash.first.keys
-    @rows = @arrayofhash.each.count
     element_params.csv_data
-    @document.map { |document| document.rows = document.to_csv.size }
-    @document.map { |document| document.columns = document.to_csv.first.keys.size}
+    #@document.map { |document| document.rows = document.to_csv.size }
+    #@document.map { |document| document.columns = document.to_csv.first.keys.size}
     #element_params.columns = element_params.to_csv.first.keys.size
   end
 
