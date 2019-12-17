@@ -1,16 +1,16 @@
 
 .square {
   background: #0059D2;
-  padding-bottom: 1000px;
 }
 
 .under-square {
   background: #0059D2;
-  padding-top: 40px;
+  margin-top: 40px;
   color: white;
   font-weight: 500;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   font-family: comfortaa;
   margin-left: 15px;
   }
@@ -18,7 +18,11 @@
 .font-size {
   font-size: 25px;
   color:white;
+}
 
+.under-square a:hover {
+  color: white;
+  text-decoration: none;
 }
 
 .font-size-second {
@@ -75,11 +79,6 @@ span {
  }
 
 
-.card-that-contain-all {
-    background: #0059D2;
-    padding-bottom: 50px;
-
-}
 
 .first-component-card p {
 font-size: 500;
@@ -224,6 +223,7 @@ color: #0059D2;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin: 32px;
 }
 
 
