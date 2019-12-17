@@ -9,29 +9,52 @@ class ChartsController < ApplicationController
     @chart.update(description: params[:chart][:description])
   end
 
-  def preview
-      @document = Document.find(params[:document_id])
-      @project = @document.project
-      @chart_type = params[:chart_type]
-    if !params[:text].empty?
-      @chart = Chart.new(
-        data: {
-          headers: csv_selection(params[:text], @document.csv_headers),
-          values:  csv_selection(params[:text], @document.csv_data),
-          type: params[:chart_type]
-        }
-        )
-    else
-      @chart = Chart.new(
+  def show
+    @chart = Chart.find(params[:id])
+  end
+
+  def create
+    @chart = Chart.new(
         data: {
           headers: @document.csv_headers,
           values:  @document.csv_data,
           type: params[:chart_type]
         }
-        )
+      )
+    @chart.save
+  end
+
+  def new
+    @chart = Chart.new
+  end
+
+  def destroy
+
+  end
+
+
+  def preview
+      @document = Document.find(params[:document_id])
+      @project = @document.project
+      @chart_type = params[:chart_type]
+    if !params[:text].empty?
+       @chart = Chart.new
+    #     data: {
+    #       headers: csv_selection(params[:text], @document.csv_headers),
+    #       values:  csv_selection(params[:text], @document.csv_data),
+    #       type: params[:chart_type]
+    #     }
+    #     )
+     else
+       @chart = Chart.new
+    #     data: {
+    #       headers: @document.csv_headers,
+    #       values:  @document.csv_data,
+    #       type: params[:chart_type]
+    #     }
+    #     )
     end
       @chart.document = @document
-      @chart.save
   end
 
   #useless_per_colpa_di_gigi
