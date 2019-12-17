@@ -1,10 +1,19 @@
   class ProjectsController < ApplicationController
   def index
-    @projects = Project.all
-    if params[:project_id].present?
-      @project = Project.find(params[:project_id])
-      @project.destroy
-      redirect_to projects_path
+    if params[:format].present?
+      @projects = Project.where(user_id: current_user.id)
+      if params[:project_id].present?
+        @project = Project.find(params[:project_id])
+        @project.destroy
+        redirect_to projects_path
+      end
+    else
+      @projects = Project.all
+      if params[:project_id].present?
+        @project = Project.find(params[:project_id])
+        @project.destroy
+        redirect_to projects_path
+      end
     end
   end
 

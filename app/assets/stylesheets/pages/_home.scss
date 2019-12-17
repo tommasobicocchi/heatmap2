@@ -1,16 +1,16 @@
 
 .square {
   background: #0059D2;
-  padding-bottom: 1000px;
 }
 
 .under-square {
   background: #0059D2;
-  padding-top: 40px;
+  margin-top: 40px;
   color: white;
   font-weight: 500;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   font-family: comfortaa;
   margin-left: 15px;
   }
@@ -18,7 +18,11 @@
 .font-size {
   font-size: 25px;
   color:white;
+}
 
+.under-square a:hover {
+  color: white;
+  text-decoration: none;
 }
 
 .font-size-second {
@@ -75,11 +79,6 @@ span {
  }
 
 
-.card-that-contain-all {
-    background: #0059D2;
-    padding-bottom: 50px;
-
-}
 
 .first-component-card p {
 font-size: 500;
@@ -87,7 +86,8 @@ text-decoration:none!important;
 }
 
 .first-component-card {
-color: #0059D2;
+  box-shadow: 3px 5px 18px -6px rgba(0,0,0,0.56);
+  color: #0059D2;
 a {
   text-decoration:none;
 }
@@ -220,9 +220,10 @@ color: #0059D2;
 
 
 .container-flex  {
-
-  display:flex;
-  flex-wrap:  wrap;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 32px;
 }
 
 

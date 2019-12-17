@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  #get 'sign_up', to: 'pages#sign_up'
   get 'chart', to: 'pages#chart'
   get 'charts/preview', to: 'charts#preview'
   root to: 'pages#home'
