@@ -43,10 +43,10 @@
     </div>
   </div>
     <div class="col-7 text-center ml-5" data-controller="table">
-      <div class="uploader" data-controller="dropzone" data-dropzone-accepted-files="text/csv" >
-        <%= simple_form_for(Document.new, :url => { :action => "create" })  do |f| %>
+      <div class="uploader" data-controller="dropzone">
+        <%= simple_form_for(Document.new, :url => { :action => "create" }, data: { target: '' })  do |f| %>
         <%= f.input :name, placeholder: "Name of the document"%>
-        <%= f.input :link, input_html: { class: 'dropzone form-height' }, data: { target: 'dropzone.input' } %>
+        <%= f.input :link, input_html: { class: 'dropzone form-height' }, data: { action: 'submit->dropzone#uploader', target: 'dropzone.input' } %>
         <%= f.submit %>
         <% end %>
       </div>
