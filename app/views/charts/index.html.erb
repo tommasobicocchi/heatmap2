@@ -20,21 +20,23 @@
   <% @charts.each  do |chart|%>
 <div class="center">
   <div class="title-name">
-    <h3>EMEA Omnichannel Analysis</h3>
+    <h3><%= chart.name %></h3>
   </div>
 </div>
     <div class="col-5 m-5">
       <canvas data-controller="chart"
               data-chart-headers="<%= chart.data["headers"].to_json %>"
               data-chart-data="<%= chart.data["values"].to_json %>"
-              data-chart-type="<%= chart.data["type"] %>"
+              data-chart-type="<%= chart.data["chart_type"] %>"
               width="200" height="200">
       </canvas>
     </div>
     <div class="col-5 chart-text">
       <div>
+      <h3> Key Message</h3>
       <p><%= chart.description %> </p>
       </div>
     </div>
+  <%= link_to "Delete Chart", project_charts_path(chart_id: chart.id), method: :delete, class: "btn btn-primary" %>
   <% end %>
 </div>
