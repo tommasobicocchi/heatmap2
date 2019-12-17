@@ -4,7 +4,6 @@
 }
 
 .under-square {
-  background: #0059D2;
   margin-top: 40px;
   color: white;
   font-weight: 500;
@@ -12,7 +11,9 @@
   justify-content: space-around;
   align-items: center;
   font-family: comfortaa;
-  margin-left: 15px;
+  width: 90%;
+  margin: 24px auto;
+  padding: 16px;
   }
 
 .font-size {
@@ -137,7 +138,7 @@ img {
 //   Tommaso landing page code start here
 
 .box-header{
-  background-color: #0059D2;
+  background-image: linear-gradient(to bottom, #0059d2, #194fc1, #2245b0, #263c9f, #27338f);
   padding: 100px;
   color: white;
 }
@@ -232,6 +233,8 @@ color: #0059D2;
 //align-items: center;
 display: flex;
 flex-direction: row-reverse;
+justify-content: space-between;
+align-items: center;
 padding-right: 20px;
 }
 
@@ -240,7 +243,6 @@ padding-right: 20px;
     color: #0059D2;
     font-weight: bold;
     padding-right: 15px;
-    padding-top: 15px;
     margin-bottom: 0px;
     font-size: 20px;
 }
