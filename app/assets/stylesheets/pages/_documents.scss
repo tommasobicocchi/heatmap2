@@ -95,7 +95,12 @@ body {
 }
 
 .chart-text {
-margin: auto;
+background-color: white;
+color: blue;
+height: 200px;
+border-radius: 8px;
+text-align: center;
+padding: 24px;
 }
 
 .title-name {
@@ -121,4 +126,8 @@ margin: auto;
  .text-field-position textarea {
   border-radius: 16px;
   color: #0059D2;
+ }
+
+ .center {
+  margin: 0 auto;
  }

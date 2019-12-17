@@ -25,8 +25,12 @@
   def create
     @project = Project.new(project_params)
     @project.user_id = current_user.id
-    @project.save
+
+   if @project.save
     redirect_to projects_path(@project)
+  else
+    render 'new'
+  end
   end
 
 
