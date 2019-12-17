@@ -1,4 +1,10 @@
+require 'csv'
+
+
 class ChartsController < ApplicationController
+  before_action :set_document, only:  [:preview, :create]
+  before_action :set_chart_data, only: :preview
+
   def index
     @project = Project.find(params[:project_id])
     @charts = @project.charts
@@ -14,14 +20,29 @@ class ChartsController < ApplicationController
   end
 
   def create
-    @chart = Chart.new(
-        data: {
-          headers: @document.csv_headers.drop(1),
-          values:  @document.csv_data.drop(1),
-          type: params[:chart_type]
-        }
-      )
-    @chart.save
+    @chart = Chart.new(chart_params)
+    @chart .document = @document
+
+    data = {}
+    if params[:headers].present?
+      data[:headers] = params[:headers].split
+    end
+
+    if params[:headers].present?
+      data[:values] = params[:values].split
+    end
+
+    if params[:chart_type].present?
+      data[:chart_type] = params[:chart_type]
+    end
+
+    @chart.data = data
+
+    if @chart.save
+      redirect_to project_charts_path(@document.project)
+    else
+      render :preview
+    end
   end
 
   def new
@@ -34,27 +55,7 @@ class ChartsController < ApplicationController
 
 
   def preview
-      @document = Document.find(params[:document_id])
-      @project = @document.project
-      @chart_type = params[:chart_type]
-    if !params[:text].empty?
-       @chart = Chart.new
-    #     data: {
-    #       headers: csv_selection(params[:text], @document.csv_headers),
-    #       values:  csv_selection(params[:text], @document.csv_data),
-    #       type: params[:chart_type]
-    #     }
-    #     )
-     else
-       @chart = Chart.new
-    #     data: {
-    #       headers: @document.csv_headers,
-    #       values:  @document.csv_data,
-    #       type: params[:chart_type]
-    #     }
-    #     )
-    end
-      @chart.document = @document
+    @project = @document.project
   end
 
   #useless_per_colpa_di_gigi
@@ -72,7 +73,29 @@ class ChartsController < ApplicationController
 
   private
 
+  def set_document
+    @document = Document.find(params[:document_id])
+  end
+
   def chart_params
-    params.require(:chart).permit(:data, :description)
+    params.require(:chart).permit(:description, :name)
+  end
+
+  def set_chart_data
+    @chart_type = params[:chart_type]
+    if params[:text].present?
+      @headers = @document.csv_selection_headers(params[:text])
+      @values = @document.csv_selection_data(params[:text])
+    else
+      @headers = @document.csv_headers.slice(1, @document.csv_headers.size - 1)
+      @values = @document.csv_data.slice(1, @document.csv_data.size - 1)
+    end
+    @chart = Chart.new(
+      data: {
+        headers: @headers,
+        values: @values,
+        type: @chart_type
+      }
+    )
   end
 end

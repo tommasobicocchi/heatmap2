@@ -13,34 +13,33 @@
     </div>
   </div>
 </div>
-<div class="d-flex justify-content-center m-5">
-  <div class="title-name">
-    <h3>EMEA Omnichannel Analysis</h3>
+
+
+
+<%= simple_form_for([@document, @chart]) do |f| %>
+    <%= hidden_field_tag :chart_type, @chart_type %>
+    <%= hidden_field_tag :headers, @headers %>
+    <%= hidden_field_tag :values, @values %>
+
+  <div class="d-flex justify-content-center m-5">
+   <div class="title-name">
+      <h3> <%=  f.input :name, as: :string  %></h3>
+    </div>
   </div>
-</div>
-<div class="row p-5 justify-content-around w-100">
-  <div class="chart-container col-5">
-    <% if !params[:text].empty? %>
-    <canvas data-controller="chart"
-    data-chart-headers="<%= @document.csv_selection_headers(params[:text]).to_json %>"
-    data-chart-data="<%= @document.csv_selection_data(params[:text]).to_json %>"
-    data-chart-type="<%= @chart_type %>"
-    width="200" height="200">
-    </canvas>
-    <% else %>
-    <canvas data-controller="chart"
-    data-chart-headers="<%= @document.csv_headers.slice(1, @document.csv_headers.size - 1).to_json %>"
-    data-chart-data="<%= @document.csv_data.slice(1, @document.csv_headers.size - 1).to_json %>"
-    data-chart-type="<%= @chart_type %>"
-    width="200" height="200">
-    <% end %>
+  <div class="row p-5 justify-content-around w-100">
+    <div class="chart-container col-5">
+        <canvas data-controller="chart"
+                data-chart-headers="<%= @headers.to_json %>"
+                data-chart-data="<%= @values.to_json %>"
+                data-chart-type="<%= @chart_type %>"
+                width="200" height="200">
+        </canvas>
+    </div>
+    <div class="col-5 text-center text-field-position">
+      <fieldset>
+        <%= f.input :description, as: :text, input_html: { cols: 5, rows: 8 } %>
+        <%= f.submit "Save Chart", class: "btn btn-primary" %>
+      </fieldset>
+    </div>
   </div>
-  <div class="col-5 text-center text-field-position">
-    <%= simple_form_for(Chart.new, :url => { :action => "create" } ) do |f| %>
-    <fieldset>
-      <%= f.input :description, as: :text, :input_html => { :cols => 5, :rows => 8 } %>
-      <%= f.submit "Save Chart", project_charts_path(@chart, @chart.document.project_id), class: "btn btn-primary" %>
-    </fieldset>
-    <% end %>
-  </div>
-</div>
+<% end %>

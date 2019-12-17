@@ -6,11 +6,14 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
 
-  resources :projects, only: [:create, :index, :show, :new, :destroy, :edit, :update] do
-  resources :documents do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-    resources :charts, only: [:create, :new, :update, :new, :show]
+  resources :projects do
+    resources :documents, only: [:index, :create] do
+      resources :charts, only: [:create]
+    end
+    resources :charts, only: [ :index, :show, :destroy, :create, :new ]
   end
-  resources :charts, only: [ :index, :show, :destroy ]
-end
+
+  resources :documents, only: [] do
+    resources :charts, only: [:create]
+  end
 end
