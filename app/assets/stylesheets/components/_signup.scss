@@ -47,6 +47,7 @@ input.btn-formm:hover {
 
 input.btn-formm {
   width: 136px;
+
 }
 
 
@@ -81,6 +82,18 @@ color: white !important;
  cursor: pointer;
 }
 
+.signup-btn:hover {
+  background-color: #00a229 !important;
+ font-family: comfortaa;
+ color: white;
+ font-weight: bold;
+ font-size: 20px;
+ word-spacing: normal;
+ text-indent: 0px;
+ text-shadow: none;
+ border-color: none !important;
+ cursor: pointer;
+}
 
 
 
@@ -95,6 +108,8 @@ border-style: solid;
 margin: 0px;
 width: 200px;
 }
+
+
 
 .update-btn {
  cursor: pointer;
