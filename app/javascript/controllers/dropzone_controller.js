@@ -4,24 +4,22 @@ export default class extends Controller {
   static targets = [ "input" ]
 
   connect() {
-    this.dropZone = createDropZone(this)
-    this.hideFileInput()
-    this.bindEvents()
+    console.log('ciao');
   }
 
+  uploader(event) {
+    const thing = this.scope.element
+  }
+
+
+  createDropzone () {
+  return new Dropzone(thing);
+}
 }
 
 
+createDropzone(controller);
 
 
-  function createDropZone(controller) {
-  return new Dropzone(controller.element, {
-    url: "",
-    maxFiles: controller.maxFiles,
-    maxFilesize: controller.maxFileSize,
-    acceptedFiles: controller.acceptedFiles,
-    addRemoveLinks: controller.addRemoveLinks,
-    autoQueue: false
-  })
-}
+
 
