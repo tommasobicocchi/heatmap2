@@ -6,7 +6,7 @@
   </div>
   <div class="nav-dx">
     <div >
-      <%= link_to "Logout", destroy_user_session_path, class: "btn btn-formm login-btn "%>
+      <%= link_to "Logout", destroy_user_session_path, class: "banana"%>
     </div>
     <div>
 
@@ -41,13 +41,13 @@
           </div>
 
           <div class="buttons-container">
-            <div class="button-edit">
-              <%=  link_to 'Edit', edit_project_path(project.id) , class: "" %>
+            <div>
+              <%=  link_to 'Edit', edit_project_path(project.id) , class: "button-edit" %>
             </div>
             <%#= link_to "Edit", edit_project_path(project) %>
             <%#= link_to "Delete", project_path(project), method: :delete %>
-            <div class="button-edit">
-              <%=  link_to 'Delete', projects_path(project_id: project.id) , method: :delete, class: "" %>
+            <div class="">
+              <%=  link_to 'Delete', projects_path(project_id: project.id) , method: :delete, class: "button-edit" %>
             </div>
           </div>
         </div>
@@ -60,9 +60,10 @@
              <div class="none-user-card">
               <div class="none-component-card">
                 <img src="<%= project.user.photo.url %>" alt="">
-                <p class="username"> <%= current_user.email %></p>
+
               </div>
                <h4>Project owned by</h4>
+               <p class="username"> <%= current_user.email %></p>
             <p><%= project.description %></p>
           </div>
 
