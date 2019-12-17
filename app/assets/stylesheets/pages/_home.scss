@@ -86,8 +86,7 @@ text-decoration:none!important;
 }
 
 .first-component-card {
-  box-shadow: 3px 5px 18px -6px rgba(0,0,0,0.56);
-  color: #0059D2;
+
 a {
   text-decoration:none;
 }
@@ -109,7 +108,7 @@ padding-bottom: 5px;
   padding-right: 15px;
   padding-top: 15px;
   margin-bottom: 0px;
-  font-size: 15px;
+  font-size: 20px;
 }
 img {
   width: 50px;
@@ -121,7 +120,7 @@ img {
 .user-card {
   padding-left: 20px;
   h1 {
-    font-size: 32px;
+    font-size: 25px;
     margin-bottom: 0px;
   }
 }
@@ -227,6 +226,7 @@ color: #0059D2;
   margin: 32px;
 }
 
+
 .none-component-card {
 color: #0059D2;
 //align-items: center;
@@ -236,8 +236,13 @@ padding-right: 20px;
 padding-top: 20px;
 padding-bottom: 5px;
 }
+
+
+
+
 .none-user-card {
   padding-left:20px;
+
 h2  {
  color:#0059D2;;
  font-size:25;
@@ -250,7 +255,11 @@ img {
   width: 50px;
   height: 50px; }
 }
+
 .none-user-card a:hover{
   text-decoration:none;
 }
+
+
+
 

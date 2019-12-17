@@ -9,7 +9,7 @@
       <%= link_to "Logout", destroy_user_session_path%>
     </div>
     <div>
-      <a href="#">Setting</a>
+      <a href="#">Settings</a>
     </div>
   </div>
 </div>
@@ -36,11 +36,10 @@
     <% end %>
   </div>
   <div class="col-5 text-center text-field-position">
-    <%= simple_form_for([@project, @document, @chart]) do |f| %>
+    <%= simple_form_for(Chart.new, :url => { :action => "create" } ) do |f| %>
     <fieldset>
       <%= f.input :description, as: :text, :input_html => { :cols => 5, :rows => 8 } %>
-      <%= f.submit "Add Text", class: "btn btn-primary m-2" %>
-    <%= link_to "Saved Charts", project_charts_path(@project), class: "btn btn-primary m-2" %>
+      <%= f.submit "Save Chart", project_charts_path(@chart, @chart.document.project_id), class: "btn btn-primary" %>
     </fieldset>
     <% end %>
   </div>
