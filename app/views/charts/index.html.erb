@@ -14,8 +14,14 @@
     </div>
   </div>
 </div>
-<div class="row w-100">
+
+<div class="row w-100 align-items-center">
   <% @charts.each  do |chart|%>
+<div class="center">
+  <div class="title-name">
+    <h3>EMEA Omnichannel Analysis</h3>
+  </div>
+</div>
     <div class="col-5 m-5">
       <canvas data-controller="chart"
               data-chart-headers="<%= chart.data["headers"].to_json %>"
@@ -25,9 +31,9 @@
       </canvas>
     </div>
     <div class="col-5 chart-text">
-
-      <h2><%= @project.name %></h2>
+      <div>
       <p><%= chart.description %> </p>
+      </div>
     </div>
   <% end %>
 </div>
