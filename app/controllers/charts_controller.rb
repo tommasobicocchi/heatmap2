@@ -8,55 +8,56 @@ class ChartsController < ApplicationController
   def index
     @project = Project.find(params[:project_id])
     @charts = @project.charts
-  end
-
-  def update
-    @chart = Chart.find(params[:id])
-    @chart.update(description: params[:chart][:description])
-  end
-
-  def show
-    @chart = Chart.find(params[:id])
-  end
-
-  def create
-    @chart = Chart.new(chart_params)
-    @chart .document = @document
-
-    data = {}
-    if params[:headers].present?
-      data[:headers] = params[:headers].split
-    end
-
-    if params[:headers].present?
-      data[:values] = params[:values].split
-    end
-
-    if params[:chart_type].present?
-      data[:chart_type] = params[:chart_type]
-    end
-
-    @chart.data = data
-
-    if @chart.save
-      redirect_to project_charts_path(@document.project)
-    else
-      render :preview
+    if params[:chart_id].present?
+      @chart = Chart.find(params[:chart_id])
+      @chart.destroy
+      redirect_to project_charts_path
     end
   end
 
-  def new
-    @chart = Chart.new
-  end
+   # def update
+   #    @chart = Chart.find(params[:id])
+   #    @chart.update(description: params[:chart][:description])
+   #  end
 
-  def destroy
+   #  def show
+   #    @chart = Chart.find(params[:id])
+   #  end
 
-  end
+    def create
+      @chart = Chart.new(chart_params)
+      @chart .document = @document
+
+      data = {}
+      if params[:headers].present?
+        data[:headers] = params[:headers].split
+      end
+
+      if params[:headers].present?
+        data[:values] = params[:values].split
+      end
+
+      if params[:chart_type].present?
+        data[:chart_type] = params[:chart_type]
+      end
+
+      @chart.data = data
+
+      if @chart.save
+        redirect_to project_charts_path(@document.project)
+      else
+        render :preview
+      end
+    end
+
+    def new
+      @chart = Chart.new
+    end
 
 
-  def preview
-    @project = @document.project
-  end
+    def preview
+      @project = @document.project
+    end
 
   #useless_per_colpa_di_gigi
 
@@ -96,6 +97,6 @@ class ChartsController < ApplicationController
         values: @values,
         type: @chart_type
       }
-    )
+      )
   end
 end
