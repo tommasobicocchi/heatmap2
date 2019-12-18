@@ -11,13 +11,22 @@
   <div class="navabar-box-text">
       <% if current_user.nil? %>
 
-    <%= link_to "Signup", new_user_session_path, class: "banana" %>
+    <%= link_to "Login", new_user_session_path, class: "banana" %>
 
       <%else %>
 
       <%= link_to "Logout", destroy_user_session_path, class: "banana" %>
       <% end %>
     </div>
+
+   <% if current_user.nil? %>
+
+   <%= link_to "Signup", new_user_registration_path, class: "anguria" %>
+
+    <%else %>
+
+   <%end %>
+
   </div>
 
 
@@ -37,11 +46,12 @@
 <div class="call-to-action-homepage">
   <%  if user_signed_in? %>
 
+<%= link_to "Projects", projects_path, class: "anguria "  %>
+
    <% else %>
 
 
 
- <%= link_to "Projects", projects_path, class: "btn btn-formm signup-btn "  %>
 
 
 
