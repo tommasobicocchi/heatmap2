@@ -6,8 +6,11 @@ class DocumentsController < ApplicationController
 
 
   def index
+    @project = Project.find(params[:project_id])
       if params[:query].present?
-      @documents = Document.where('documents.link ILIKE ? AND CAST(documents.project_id AS text) ILIKE ?', "%#{params[:query]}%", "%#{params[:project_id]}%")
+      @documents = Document.where('name ILIKE ? AND CAST(project_id AS text) ILIKE ?', "%#{params[:query]}%" ,"%#{params[:project_id]}%")
+      #raise
+      #@documents = Document.where('first_name ILIKE ? AND CAST(project_id AS text) ILIKE ?', "%#{params[:query]}%", "%#{params[:project_id]}%")
       #redirect_to project_documents_path(@documents)
       @document = Document.new
       @document = Document.where(project_id: params[:project_id])
@@ -36,13 +39,13 @@ class DocumentsController < ApplicationController
   end
 
   def create
-    @document = Document.new(document_params)
-    @document.first_name = params["document"]['link'].original_filename
-    @document.project_id = params[:project_id]
-    if @document.save
-      redirect_to project_documents_path(document_id: @document.id)
-    else
-      redirect_to project_documents_path
+    if params[:file].present?
+      @document = Document.new
+      @document.link = params[:file]
+      @document.first_name = params[:file].original_filename
+      @document.project_id = params[:project_id]
+
+      @document.save
     end
   end
 

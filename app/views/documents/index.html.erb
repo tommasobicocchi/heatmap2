@@ -33,11 +33,12 @@
         <% end %>
       </div>
 
-      <h3 class="ml-4 my-4">My files</h3>
+
+      <h3 class="ml-4 my-4">Your files</h3>
       <ul>
-        <% Document.where(project_id: params[:project_id]).each do |document| %>
+        <% @documents.where(project_id: params[:project_id]).each do |document| %>
         <h4><li> <%= link_to "#{document.name}, #{document.first_name}", project_documents_path(document_id: document.id) %> </li></h4>
-        <p>- columns <%= document.to_csv.first.keys.size %>, rows <%= document.to_csv.size  %></p>
+        <p>- How many columns <%= document.to_csv.first.keys.size %>, and <%= document.to_csv.size  %></p>
         <% end %>
       </ul>
     </div>
@@ -54,13 +55,17 @@
       <%= image_tag "export.png" %>
       </div>
   </div>
-    <div class="col-7 text-center ml-5" data-controller="table">
-      <div class="uploader" data-controller="dropzone">
-        <%= simple_form_for(@document_new, :url => { :action => "create" }, data: { target: '' })  do |f| %>
-        <%= f.input :name, placeholder: "Name of the document"%>
-        <%= f.input :link, input_html: { class: 'dropzone form-height' }, data: { action: 'submit->dropzone#uploader', target: 'dropzone.input' } %>
-        <%= f.submit %>
-        <% end %>
+    <div class="col-7 text-center ml-5">
+      <div style="height: 100%; border: 2px dashed white;";
+           data-controller="dropzone"
+           data-dropzone-url="<%= project_documents_path(@project) %>"
+           data-dropzone-project-id="<%= @project.id %>"></div>
+      <div class="uploader">
+        <%#= simple_form_for(@document_new, :url => { :action => "create" })  do |f| %>
+        <%#= f.input :name, placeholder: "Name of the document"%>
+        <%#= f.input :link, input_html: { class: 'dropzone form-height' }, data: { controller: "table", action: 'submit->dropzone#uploader', target: 'dropzone.input' } %>
+        <%#= f.submit %>
+        <%# end %>
       </div>
       <% if params[:document_id].present?  %>
       <div data-controller="table">

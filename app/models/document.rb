@@ -2,9 +2,9 @@ class Document < ApplicationRecord
   mount_uploader :link, CsvUploader
   belongs_to :project
   has_many :charts, dependent: :destroy
-  validates :name, presence: true
+  # validates :name, presence: true
   validates :link, presence: true
-  validates :name, length: { minimum: 2 }
+  # validates :name, length: { minimum: 2 }
 
   def csv_headers
     to_csv.first.keys
