@@ -31,7 +31,7 @@ export const bar = (element, headers, data, title) => {
         'white',
         'white'
         ],
-        borderWidth: 3
+        borderWidth: 0
       }]
     },
     options: {
@@ -50,6 +50,8 @@ export const bar = (element, headers, data, title) => {
             color: "#FFFFFF"
           },
           ticks: {
+            autoSkip: true,
+            maxTicksLimit: 20,
             fontColor: "white",
             fontSize: 10,
             stepSize: 1,
@@ -115,6 +117,8 @@ export const line = (element, headers, data, title) => {
             color: "#FFFFFF"
           },
           ticks: {
+            autoSkip: true,
+            maxTicksLimit: 20,
             fontColor: "white",
             fontSize: 10,
             stepSize: 1,
