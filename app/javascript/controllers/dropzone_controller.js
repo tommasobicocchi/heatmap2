@@ -7,20 +7,30 @@ import Rails from "@rails/ujs";
    static targets = [ "input" ]
 
    connect() {
+    console.log(this);
     Dropzone.autoDiscover = false;
 
-    console.log("Hello from dropzone", this.projectId)
+    console.log(this.file)
     const options = {
       url: this.url,
       method: "post",
+      addRemoveLinks: true,
+      clickable: true,
+      acceptedFiles: '.csv',
       params: {
         project_id: this.projectId
       },
       headers: {
         'X-CSRF-Token': Rails.csrfToken()
-      }
-    }
+      },
+      maxFilesize: 3,
+      success: this.onSuccess
+    };
     this.dropzone = new Dropzone(this.element, options)
+  }
+
+  onSuccess(file, res) {
+    location.reload();
   }
 
   get url() {
@@ -32,7 +42,9 @@ import Rails from "@rails/ujs";
   }
 }
 
-
+// function() {
+//     this.on("success", function(response) { location.reload(); });
+//   }
 
 
 
