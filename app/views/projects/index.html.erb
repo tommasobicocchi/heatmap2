@@ -1,20 +1,20 @@
+
 <div class="navbar-heat">
   <div class="nav-sx">
     <%= link_to root_path do %>
-    <%= image_tag "target(1).png" %>
+    <h2 class="text-navbar">HeatMap</h2>
     <% end %>
   </div>
-  <div class="nav-dx">
+
+ <div class="nav-dx">
     <div >
-      <%= link_to "Logout", destroy_user_session_path, class: "btn btn-formm login-btn "%>
+      <%= link_to "Logout", destroy_user_session_path, class: "banana"%>
     </div>
-    <div>
 
-      <a href="#">Setting</a>
-
-    </div>
   </div>
 </div>
+
+
 
     <h1 class="project-title"> Projects </h1>
     <div class="under-square">
@@ -41,48 +41,46 @@
           </div>
 
           <div class="buttons-container">
-            <div class="button-edit">
-              <%=  link_to 'Edit', edit_project_path(project.id) , class: "" %>
+            <div>
+              <%=  link_to 'Edit', edit_project_path(project.id) , class: "button-edit" %>
             </div>
             <%#= link_to "Edit", edit_project_path(project) %>
             <%#= link_to "Delete", project_path(project), method: :delete %>
-            <div class="button-edit">
-              <%=  link_to 'Delete', projects_path(project_id: project.id) , method: :delete, class: "" %>
+            <div class="button-delete">
+              <%=  link_to 'Delete', projects_path(project_id: project.id) , method: :delete, class: "button-edit" %>
             </div>
-            <i class="fas fa-circle fa-lg"></i>
+            <div class="green-icon-blew">
+             <%= image_tag "circular-shape-silhouette.png" %>
+          </div>
           </div>
         </div>
       </div>
 
       <% else %>
 
-      <div class="non-card-doc">
-
-             <div class="none-user-card">
+      <div class="none-card-doc">
+         <div class="none-user-card">
               <div class="none-component-card">
-                <img src="<%= project.user.photo.url %>" alt="">
-                <p class="username"> <%= current_user.email %></p>
+              <img src="<%= project.user.photo.url %>" alt="">
+              <p class="username"> <%= current_user.email %></p>
               </div>
+             <div class="user-card">
               <h2>
               <%=  link_to project.name,(project_charts_path(project.id)) %>
               </h2>
                <div class="mr-2 center space-between">
-            <p><%= project.description %></p>
-              <i class="fas fa-circle fa-lg"></i>
-            </div>
-          </div>
+                <p><%= project.description %></p>
+              </div>
+               <i class="fas fa-circle fa-lg"></i>
 
       </div>
 
-
-
-      <% end %>
-
-      <% end %>
+</div>
 </div>
 
+      <% end %>
 
-
+      <% end %>
 
 
 

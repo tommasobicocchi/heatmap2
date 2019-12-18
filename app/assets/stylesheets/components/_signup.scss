@@ -23,6 +23,15 @@ padding-top: 100px;
  transition: 0.3s;
 }
 
+
+input.btn-formm {
+  width: 136px;
+
+}
+
+
+
+
 input.btn-formm:hover {
   // official
   background-color: #00a229 !important;
@@ -36,13 +45,6 @@ input.btn-formm:hover {
  border-color: none !important;
  cursor: pointer;
 }
-
-input.btn-formm {
-  width: 136px;
-}
-
-
-
 
 .login-btn {
 cursor: pointer;
@@ -73,6 +75,18 @@ color: white !important;
  cursor: pointer;
 }
 
+.signup-btn:hover {
+  background-color: #00b32d !important;
+ font-family: comfortaa;
+ color: white;
+ font-weight: bold;
+ font-size: 20px;
+ word-spacing: normal;
+ text-indent: 0px;
+ text-shadow: none;
+ border-color: none !important;
+ cursor: pointer;
+}
 
 
 
@@ -85,8 +99,10 @@ padding: 12px 16px;
 border-width: 1px;
 border-style: solid;
 margin: 0px;
-width: 200px;
+width: 126px;
 }
+
+
 
 .update-btn {
  cursor: pointer;
