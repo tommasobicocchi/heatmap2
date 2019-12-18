@@ -1,22 +1,39 @@
-// import { Controller } from "stimulus";
+import Dropzone from "dropzone";
+import Rails from "@rails/ujs";
 
-// export default class extends Controller {
-//   static targets = [ "input" ]
+ import { Controller } from "stimulus";
 
-//   connect() {
-//     console.log('ciao');
-//      }
+ export default class extends Controller {
+   static targets = [ "input" ]
 
-//     uploader(event) {
-//        const thing = this.scope.element
-//         }
+   connect() {
+    Dropzone.autoDiscover = false;
 
-//         createDropzone () {
-//           return new Dropzone(thing);
-//         }
-//       }
+    console.log("Hello from dropzone", this.projectId)
+    const options = {
+      url: this.url,
+      method: "post",
+      params: {
+        project_id: this.projectId
+      },
+      headers: {
+        'X-CSRF-Token': Rails.csrfToken()
+      }
+    }
+    this.dropzone = new Dropzone(this.element, options)
+  }
 
-// createDropzone(controller);
+  get url() {
+    return this.data.get("url");
+  }
+
+  get projectId() {
+    return this.data.get("projectId");
+  }
+}
+
+
+
 
 
 

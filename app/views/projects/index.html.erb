@@ -63,7 +63,9 @@
                 <img src="<%= project.user.photo.url %>" alt="">
                 <p class="username"> <%= current_user.email %></p>
               </div>
-               <h4><%= project.name %></h4>
+              <h2>
+              <%=  link_to project.name,(project_charts_path(project.id)) %>
+              </h2>
                <div class="mr-2 center space-between">
             <p><%= project.description %></p>
               <i class="fas fa-circle fa-lg"></i>
