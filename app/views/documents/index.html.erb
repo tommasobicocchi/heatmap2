@@ -42,21 +42,10 @@
         <% end %>
       </ul>
     </div>
-    <div class="chart-export">
-        <div class="py-2">
-      <%= link_to "Export", @document.link.url %>
-      </div>
-      <%= image_tag "export.png" %>
-      </div>
-      <div class="chart-export">
-        <div class="py-2">
-      <%= link_to "Export", @document.link.url %>
-      </div>
-      <%= image_tag "export.png" %>
-      </div>
+
   </div>
     <div class="col-7 text-center ml-5">
-      <div style="height: 100%; border: 2px dashed white;";
+      <div style="height: 300px; border: 2px dashed white;";
            data-controller="dropzone"
            data-dropzone-url="<%= project_documents_path(@project) %>"
            data-dropzone-project-id="<%= @project.id %>"></div>
