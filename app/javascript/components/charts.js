@@ -31,7 +31,7 @@ export const bar = (element, headers, data, title) => {
         'white',
         'white'
         ],
-        borderWidth: 3
+        borderWidth: 0
       }]
     },
     options: {
