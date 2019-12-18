@@ -33,6 +33,7 @@
         <% end %>
       </div>
 
+
       <h3 class="ml-4 my-4">Your files</h3>
       <ul>
         <% @documents.where(project_id: params[:project_id]).each do |document| %>
@@ -41,6 +42,18 @@
         <% end %>
       </ul>
     </div>
+    <div class="chart-export">
+        <div class="py-2">
+      <%= link_to "Export", @document.link.url %>
+      </div>
+      <%= image_tag "export.png" %>
+      </div>
+      <div class="chart-export">
+        <div class="py-2">
+      <%= link_to "Export", @document.link.url %>
+      </div>
+      <%= image_tag "export.png" %>
+      </div>
   </div>
     <div class="col-7 text-center ml-5">
       <div style="height: 100%; border: 2px dashed white;";
@@ -57,24 +70,18 @@
       <% if params[:document_id].present?  %>
       <div data-controller="table">
       <div class="chart-links">
-        <div class="chart-item">
-        <a href="">Results <span class="ancor-icon"><i class="fas fa-file-csv fa-2x"></i></span></a>
-        </div>
-        <div class="chart-item">
-      <%= link_to "bar", charts_preview_path(document_id: params[:document_id], chart_type: "bar", text: ""), data: { action: 'click->table#check', target: 'table.link'} %>
-      <i class="fas fa-chart-pie fa-2x"></i>
+
+        <div class="chart-item chart-bar">
+      <%= link_to "Bar", charts_preview_path(document_id: params[:document_id], chart_type: "bar", text: ""), data: { action: 'click->table#check', target: 'table.link'} %>
+      <%= image_tag "chart.png" %>
       </div>
       <div class="chart-item">
-      <%= link_to "line", charts_preview_path(document_id: params[:document_id], chart_type: "line", text: ""), data: { action: 'click->table#check', target: 'table.link'} %>
-      <i class="fas fa-chart-line fa-2x"></i>
+      <%= link_to "Line", charts_preview_path(document_id: params[:document_id], chart_type: "line", text: ""), data: { action: 'click->table#check', target: 'table.link'} %>
+      <%= image_tag "line-chart.png" %>
       </div>
-      <div class="chart-item">
-      <%= link_to "doughnut", charts_preview_path(document_id: params[:document_id], chart_type: "doughnut", text: ""), data: { action: 'click->table#check', target: 'table.link'} %>
-      <i class="fas fa-chart-bar fa-2x"></i>
-      </div>
-      <div class="chart-item">
-      <%= link_to "Export", @document.link.url %>
-      <i class="fas fa-file-export fa-2x"></i>
+      <div class="chart-item chart-doughnut">
+      <%= link_to "Doughnut", charts_preview_path(document_id: params[:document_id], chart_type: "doughnut", text: ""), data: { action: 'click->table#check', target: 'table.link'} %>
+      <%= image_tag "pie-chart.png" %>
       </div>
     </div>
 
