@@ -65,8 +65,9 @@
               <p class="username"> <%= current_user.email %></p>
               </div>
              <div class="user-card">
-
-               <h2><%= project.name %></h2>
+              <h2>
+              <%=  link_to project.name,(project_charts_path(project.id)) %>
+              </h2>
                <div class="mr-2 center space-between">
                 <p><%= project.description %></p>
               </div>
