@@ -37,6 +37,8 @@
       <p><%= chart.description %> </p>
       </div>
     </div>
-  <%= link_to "Delete Chart", project_charts_path(chart_id: chart.id), method: :delete, class: "btn btn-primary" %>
+    <% if current_user.id == @project.user_id %>
+    <%= link_to "Delete Chart", project_charts_path(chart_id: chart.id), method: :delete, class: "btn btn-primary" %>
+    <% end %>
   <% end %>
 </div>
