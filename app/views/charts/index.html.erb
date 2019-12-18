@@ -1,17 +1,14 @@
-<div class="navbar-heat navbar-sticky">
+<div class="navbar-heat">
   <div class="nav-sx">
     <%= link_to root_path do %>
-    <%= image_tag "target(1).png" %>
+    <h2 class="text-navbar">HeatMap</h2>
     <% end %>
   </div>
   <div class="nav-dx">
-   <span> <%= link_to 'Back', :back %></span>
-    <div >
-      <%= link_to "Logout", destroy_user_session_path%>
-    </div>
-    <div>
-      <a href="#">Setting</a>
-    </div>
+   <span> <%= link_to 'Back', :back , class: "banana"%></span>
+
+      <%= link_to "Logout", destroy_user_session_path, class: "banana"%>
+
   </div>
 </div>
 
