@@ -1,7 +1,9 @@
 .enlight {
-  border: 4px solid #000000;
+  border-left: 2px solid green;
+  border-right: 2px solid green;
 }
 
-.blue {
+.blue tbody:nth-child(2) {
   color:blue;
 }
+
