@@ -46,8 +46,8 @@
             </div>
             <%#= link_to "Edit", edit_project_path(project) %>
             <%#= link_to "Delete", project_path(project), method: :delete %>
-            <div class="button-delete">
-              <%=  link_to 'Delete', projects_path(project_id: project.id) , method: :delete, class: "button-edit" %>
+            <div>
+              <%=  link_to 'Delete', projects_path(project_id: project.id) , method: :delete, class: "button-delete" %>
             </div>
             <div class="green-icon-blew">
              <%= image_tag "circular-shape-silhouette.png" %>
