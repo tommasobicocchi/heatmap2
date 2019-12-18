@@ -14,12 +14,14 @@ export const bar = (element, headers, data, title) => {
         data: data,
         // chart.js gets data as an array!
         backgroundColor: [
-        'white',
-        'white',
-        'white',
-        'white',
-        'white',
-        'white'
+        '#5C6584',
+        '#00D592',
+        '#8B99CB',
+        '#ffc966',
+        '#90EE90',
+        '#53b0ae',
+        '#b163a3',
+
         ],
         borderColor: [
         'white',
@@ -29,7 +31,7 @@ export const bar = (element, headers, data, title) => {
         'white',
         'white'
         ],
-        borderWidth: 1
+        borderWidth: 3
       }]
     },
     options: {
@@ -89,6 +91,10 @@ export const line = (element, headers, data, title) => {
         'white',
         'white',
         'white',
+        'white',
+        'white',
+        'white',
+
         ],
         borderWidth: 5
       }]
@@ -146,15 +152,23 @@ export const doughnut = (element, headers, data, title) => {
         // chart.js gets data as an array!
         backgroundColor: [
         '#5C6584',
-        'white',
         '#00D592',
         '#8B99CB',
+        '#ffc966',
+        '#90EE90',
+        '#53b0ae',
+        '#b163a3',
+
         ],
         borderColor: [
         '#5C6584',
-        'white',
         '#00D592',
         '#8B99CB',
+        '#ffc966',
+        '#90EE90',
+        '#53b0ae',
+        '#b163a3',
+
         ],
         borderWidth: 1
       }]
