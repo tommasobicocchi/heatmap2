@@ -1,0 +1,2 @@
+<h4><li> <%= link_to "#{document.first_name}", project_documents_path(document_id: document.id) %> </li></h4>
+<p>Columns: <%= document.to_csv.first.keys.size %>, Rows: <%= document.to_csv.size  %></p>

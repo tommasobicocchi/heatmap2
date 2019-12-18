@@ -46,9 +46,17 @@ class DocumentsController < ApplicationController
       @document.project_id = params[:project_id]
 
       @document.save
+        # html = render_to_string(
+        #   partial: "documents/document",
+        #   locals: { document: @document },
+        #   layout: false,
+        #   formats: [:html]
+        # )
+        # html = ""
+
+      # render json: { html: html }
     end
   end
-
 
   private
 
