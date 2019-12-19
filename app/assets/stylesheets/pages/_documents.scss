@@ -191,3 +191,17 @@ margin-top: 32px;
 
 }
 
+.div_dropzone {
+  display: table;
+  width: 100%;
+}
+
+.div_dropzone_into{
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.image-dropzone {
+  height: 8%;
+  width: 8%;
+}
