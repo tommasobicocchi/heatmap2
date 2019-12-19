@@ -42,7 +42,11 @@
       <div class="d-flex justify-content-around w-75 center">
          <div class="chart-export">
         <div class="py-2">
+          <% if  @document.present? || (@document.present? && !params[:query].present?) %>
       <%= link_to "Export", @document.link.url %>
+      <% else%>
+      <h4> Nothing to export </h4>
+          <% end %>
       </div>
       <%= image_tag "export.png" %>
       </div>
