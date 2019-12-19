@@ -5,44 +5,47 @@
     <% end %>
   </div>
   <div class="nav-dx">
-   <span> <%= link_to 'Back', project_documents_path(@project), class: "banana"%></span>
-
-      <%= link_to "Logout", destroy_user_session_path, class: "banana"%>
-
+    <span> <%= link_to 'Back', project_documents_path(@project), class: "banana"%></span>
+    <%= link_to "One chart", id: "banana"%>
+    <%= link_to "Two chart", id: "banana2"%>
+    <%= link_to "Logout", destroy_user_session_path, class: "banana"%>
   </div>
 </div>
 
-<div class="row w-100 align-items-center" data-controller = "scrollreveal">
-
+<div class="row w-100 align-items-center justify-content-center" data-controller = "scrollreveal">
   <% @charts.each  do |chart|%>
-<div class="center">
-  <div class="title-name">
-    <% if chart.name == ""  %>
+  <div class="col-12">
+    <div class="title-name">
+      <% if chart.name == ""  %>
       <h3>Chart Number <%= chart.id %></h3>
    <% else %>
     <h3><%= chart.name %></h3>
     <% end %>
-  </div>
-</div>
-    <div class="col-5 m-5">
+    </div>
+    <div class="d-flex align-items-center">
+  <div class="col-5 m-5">
+    <div class="chart-image">
       <canvas data-controller="chart"
-              data-chart-headers="<%= chart.data["headers"].to_json %>"
-              data-chart-data="<%= chart.data["values"].to_json %>"
-              data-chart-type="<%= chart.data["chart_type"] %>"
-              width="200" height="200"
-              >
+      data-chart-headers="<%= chart.data["headers"].to_json %>"
+      data-chart-data="<%= chart.data["values"].to_json %>"
+      data-chart-type="<%= chart.data["chart_type"] %>"
+      width="200" height="200"
+      >
       </canvas>
     </div>
-    <div class="col-5">
-      <div class="chart-text">
-        <h3> Key Message</h3>
-        <p><%= chart.description %> </p>
-      </div>
-      <div class="d-flex justify-content-center">
-    <% if current_user.id == @project.user_id %>
-    <%= link_to "Delete Chart", project_charts_path(chart_id: chart.id), method: :delete, class: "button-del" %>
-    <% end %>
+  </div>
+  <div class="col-5">
+    <h3 class="text-center"> Key Message</h3>
+    <div class="chart-text">
+      <p><%= chart.description %> </p>
     </div>
+    <div class="d-flex justify-content-center">
+      <% if current_user.id == @project.user_id %>
+      <%= link_to "Delete Chart", project_charts_path(chart_id: chart.id), method: :delete, class: "button-del" %>
+      <% end %>
     </div>
+  </div>
+</div>
+</div>
   <% end %>
 </div>
