@@ -65,10 +65,12 @@
     <div style="height: 300px; border: 2px dashed white;";
     data-controller="dropzone"
     data-dropzone-url="<%= project_documents_path(@project) %>"
-    data-dropzone-project-id="<%= @project.id %>">
-    <img src="" alt="">
-    <%= image_tag "slumber.png" %>
+    data-dropzone-project-id="<%= @project.id %>"
+    class = "div_dropzone">
+    <div class="div_dropzone_into">
+    <%= image_tag "slumber.png" , class: "image-dropzone"%>
     <h2>Waiting for your file...</h2>
+    </div>
     </div>
       <%#= simple_form_for(@document_new, :url => { :action => "create" })  do |f| %>
       <%#= f.input :name, placeholder: "Name of the document"%>

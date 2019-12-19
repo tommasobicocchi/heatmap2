@@ -9,8 +9,6 @@ import Rails from "@rails/ujs";
    connect() {
     console.log(this);
     Dropzone.autoDiscover = false;
-
-    console.log(this.file)
     const options = {
       url: this.url,
       method: "post",
@@ -29,7 +27,14 @@ import Rails from "@rails/ujs";
     this.dropzone = new Dropzone(this.element, options)
   }
 
+  removeElements() {
+  }
+
   onSuccess(file, res) {
+    //console.log(this.element.childNodes[1])
+    const target = this.element.childNodes[1]
+    target.remove();
+    //console.log("ciao 2")
     location.reload();
   }
 
