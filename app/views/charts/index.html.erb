@@ -16,7 +16,11 @@
   <% @charts.each  do |chart|%>
   <div class="col-12" id="box">
     <div class="title-name">
-      <h5><%= chart.name %></h5>
+      <% if chart.name == ""  %>
+      <h3>Chart Number <%= chart.id %></h3>
+   <% else %>
+    <h3><%= chart.name %></h3>
+    <% end %>
     </div>
     <div class="d-flex align-items-center">
   <div class="col-5 m-5">
