@@ -28,10 +28,9 @@ body {
 
 
 .scrollable-container ul {
-  list-style-type: none;
 }
 
-.scrollable-container li a {
+.scrollable-container  li a {
   text-decoration: none;
   color: white;
 }
@@ -133,6 +132,7 @@ padding: 24px;
  .text-field-position textarea {
   border-radius: 16px;
   color: #0059D2;
+  vertical-align: bottom;
  }
 
  .text-field-position input[type=submit] {
@@ -151,6 +151,16 @@ padding: 24px;
     transition: 0.3s;
     text-decoration: none !important;
     border-radius: 8px;
+}
+
+.text-field-position input[type=submit]:hover {
+    color: #003986;
+        background-color: white;
+        border-color: white;
+      text-decoration:none!important;
+      font-weight: bold;
+      font-family:comfortaa;
+
 }
 
  .center {
