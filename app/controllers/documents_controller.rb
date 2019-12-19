@@ -8,7 +8,7 @@ class DocumentsController < ApplicationController
   def index
     @project = Project.find(params[:project_id])
       if params[:query].present?
-      @documents = Document.where('name ILIKE ? AND CAST(project_id AS text) ILIKE ?', "%#{params[:query]}%" ,"%#{params[:project_id]}%")
+      @documents = Document.where('first_name ILIKE ? AND CAST(project_id AS text) ILIKE ?', "%#{params[:query]}%" ,"%#{params[:project_id]}%")
       #raise
       #@documents = Document.where('first_name ILIKE ? AND CAST(project_id AS text) ILIKE ?', "%#{params[:query]}%", "%#{params[:project_id]}%")
       #redirect_to project_documents_path(@documents)

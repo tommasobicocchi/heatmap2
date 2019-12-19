@@ -23,75 +23,84 @@
         <%= text_field_tag :query,
         params[:query],
         class: "form text-field",
-        placeholder: "Search"
-        %>
-        <% end %>
-      </div>
+          placeholder: "Search"
+          %>
+          <% end %>
+        </div>
 
 
-      <h3 class="ml-4 my-4">Your files</h3>
-      <ul id="aside-documents">
-        <% @documents.where(project_id: params[:project_id]).each do |document| %>
+        <h3 class="ml-4 my-4">Your files</h3>
+        <ul id="aside-documents">
+          <% @documents.where(project_id: params[:project_id]).each do |document| %>
           <%= render "document", document: document %>
-        <% end %>
-      </ul>
+          <% end %>
+        </ul>
+      </div>
     </div>
-  </div>
     <div class="col-7 text-center ml-5">
 
       <div class="d-flex justify-content-around w-75 center">
-         <div class="chart-export">
+       <div class="chart-export">
         <div class="py-2">
-      <%= link_to "Export", @document.link.url %>
-      </div>
-      <%= image_tag "export.png" %>
+          <%#= raise %>
+          <% if  @document.present? && params[:query].present? && !params[:document_id].present? %>
+          <h4> Nothing to export </h4>
+          <% elsif  @document.present? || (@document.present? && !params[:query].present?) %>
+          <%= link_to "Export", @document.link.url %>
+          <% else%>
+          <h4> Nothing to export </h4>
+          <% end %>
+        </div>
+        <%= image_tag "export.png" %>
       </div>
       <div class="chart-export">
         <div class="py-2">
 
-      <%= link_to "Charts", project_charts_path %>
-      </div>
-      <%= image_tag "ui.png" %>
+          <%= link_to "Charts", project_charts_path %>
+        </div>
+        <%= image_tag "ui.png" %>
       </div>
     </div>
 
-      <div style="height: 300px; border: 2px dashed white;";
+    <div style="height: 300px; border: 2px dashed white;";
+    data-controller="dropzone"
+    data-dropzone-url="<%= project_documents_path(@project) %>"
+    data-dropzone-project-id="<%= @project.id %>">
+    <img src="" alt="">
+    <%= image_tag "slumber.png" %>
+    <h2>Waiting for your file...</h2>
+    </div>
+      <%#= simple_form_for(@document_new, :url => { :action => "create" })  do |f| %>
+      <%#= f.input :name, placeholder: "Name of the document"%>
+      <%#= f.input :link, input_html: { class: 'dropzone form-height' }, data: { controller: "table", action: 'submit->dropzone#uploader', target: 'dropzone.input' } %>
+      <%#= f.submit %>
+      <%# end %>
+    <% if params[:document_id].present?  %>
+    <div data-controller="table">
 
-           data-controller="dropzone"
-           data-dropzone-url="<%= project_documents_path(@project) %>"
-           data-dropzone-project-id="<%= @project.id %>"></div>
-      <div class="uploader">
-        <%#= simple_form_for(@document_new, :url => { :action => "create" })  do |f| %>
-        <%#= f.input :name, placeholder: "Name of the document"%>
-        <%#= f.input :link, input_html: { class: 'dropzone form-height' }, data: { controller: "table", action: 'submit->dropzone#uploader', target: 'dropzone.input' } %>
-        <%#= f.submit %>
-        <%# end %>
-      </div>
-      <% if params[:document_id].present?  %>
-      <div data-controller="table">
       <div class="chart-links">
 
         <div class="chart-item chart-bar">
-      <%= link_to "Bar", charts_preview_path(document_id: params[:document_id], chart_type: "bar", text: ""), data: { action: 'click->table#check', target: 'table.link'} %>
-      <%= image_tag "chart.png" %>
+          <%= link_to "Bar", charts_preview_path(document_id: params[:document_id], chart_type: "bar", text: ""), data: { action: 'click->table#check', target: 'table.link'} %>
+          <%= image_tag "chart.png" %>
+        </div>
+        <div class="chart-item">
+          <%= link_to "Line", charts_preview_path(document_id: params[:document_id], chart_type: "line", text: ""), data: { action: 'click->table#check', target: 'table.link'} %>
+          <%= image_tag "line-chart.png" %>
+        </div>
+        <div class="chart-item chart-doughnut">
+          <%= link_to "Doughnut", charts_preview_path(document_id: params[:document_id], chart_type: "doughnut", text: ""), data: { action: 'click->table#check', target: 'table.link'} %>
+          <%= image_tag "pie-chart.png" %>
+        </div>
       </div>
-      <div class="chart-item">
-      <%= link_to "Line", charts_preview_path(document_id: params[:document_id], chart_type: "line", text: ""), data: { action: 'click->table#check', target: 'table.link'} %>
-      <%= image_tag "line-chart.png" %>
-      </div>
-      <div class="chart-item chart-doughnut">
-      <%= link_to "Doughnut", charts_preview_path(document_id: params[:document_id], chart_type: "doughnut", text: ""), data: { action: 'click->table#check', target: 'table.link'} %>
-      <%= image_tag "pie-chart.png" %>
-      </div>
-    </div>
 
-    <div class="table-scroll">
-      <table class="table table-content">
+      <div class="table-scroll">
+        <table class="table table-content">
 
-        <thead class="thead-dark">
-          <tr>
-            <% @headers.each_with_index do |element, index| %>
-            <td id="header"
+          <thead class="thead-dark">
+            <tr>
+              <% @headers.each_with_index do |element, index| %>
+              <td id="header"
               class="head-cell
               <%= element %>"
               data-column-id="<%= index %>"
@@ -116,10 +125,10 @@
         </tbody>
       </table>
       <% end %>
-      </div>
-    </div>
     </div>
   </div>
+</div>
+</div>
 
 
 
