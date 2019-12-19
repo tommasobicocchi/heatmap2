@@ -20,6 +20,10 @@ body {
   height: 350px;
 }
 
+.label-text label {
+  display: none;
+}
+
 .text-field {
   padding: 8px;
   margin: 20px;
@@ -28,10 +32,9 @@ body {
 
 
 .scrollable-container ul {
-  list-style-type: none;
 }
 
-.scrollable-container li a {
+.scrollable-container  li a {
   text-decoration: none;
   color: white;
 }
@@ -104,10 +107,10 @@ body {
 .chart-text {
 background-color: white;
 color: blue;
-height: 200px;
 border-radius: 8px;
 text-align: center;
 padding: 24px;
+margin: 24px;
 }
 
 .title-name {
@@ -120,8 +123,8 @@ padding: 24px;
   height: 106px;
   border-radius: 8px;
 }
- .title-name h3 {
-  margin: 0;
+ .center-item {
+  margin: 0 auto;
  }
 
  .text-field-position {
@@ -133,6 +136,7 @@ padding: 24px;
  .text-field-position textarea {
   border-radius: 16px;
   color: #0059D2;
+  vertical-align: bottom;
  }
 
  .text-field-position input[type=submit] {
@@ -151,6 +155,16 @@ padding: 24px;
     transition: 0.3s;
     text-decoration: none !important;
     border-radius: 8px;
+}
+
+.text-field-position input[type=submit]:hover {
+    color: #003986;
+        background-color: white;
+        border-color: white;
+      text-decoration:none!important;
+      font-weight: bold;
+      font-family:comfortaa;
+
 }
 
  .center {
