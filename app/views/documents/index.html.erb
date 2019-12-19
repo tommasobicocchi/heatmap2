@@ -1,21 +1,16 @@
 
-
 <div class="navbar-heat">
   <div class="nav-sx">
     <%= link_to root_path do %>
-    <%= image_tag "target(1).png" %>
+    <h2 class="text-navbar">HeatMap</h2>
     <% end %>
   </div>
-
   <div class="nav-dx">
+   <span> <%= link_to 'Back', :back , class: "banana"%></span>
     <div >
-     <%= link_to "Logout", destroy_user_session_path%>
-   </div>
-   <div>
-     <a href="#">Setting</a>
-   </div>
-
- </div>
+      <%= link_to "Logout", destroy_user_session_path, class: "banana"%>
+    </div>
+  </div>
 </div>
 
 
@@ -43,6 +38,7 @@
       </div>
     </div>
     <div class="col-7 text-center ml-5">
+
       <div class="d-flex justify-content-around w-75 center">
        <div class="chart-export">
         <div class="py-2">
@@ -81,6 +77,7 @@
       <%# end %>
     <% if params[:document_id].present?  %>
     <div data-controller="table">
+
       <div class="chart-links">
 
         <div class="chart-item chart-bar">
