@@ -115,15 +115,15 @@ margin: 24px;
 }
 
 .title-name {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  width: 50%;
+  padding:16px;
   background-color: white;
   color: #0059D2;
-  width: 1400px;
-  height: 60px;
-  border-radius: 8px;
+  border-radius: 4px;
 }
+
 
 .title-name h3 {
   margin: 0;
@@ -209,4 +209,8 @@ margin-top: 32px;
 .image-dropzone {
   height: 80px;
   width: 80px;
+}
+
+.chart-image {
+  margin-top: 24px;
 }
