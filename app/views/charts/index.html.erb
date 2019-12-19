@@ -5,14 +5,14 @@
     <% end %>
   </div>
   <div class="nav-dx">
-   <span> <%= link_to 'Back', :back , class: "banana"%></span>
+   <span> <%= link_to 'Back', project_documents_path(@project), class: "banana"%></span>
 
       <%= link_to "Logout", destroy_user_session_path, class: "banana"%>
 
   </div>
 </div>
 
-<div class="row w-100 align-items-center">
+<div class="row w-100 align-items-center" data-controller = "scrollreveal">
 
   <% @charts.each  do |chart|%>
 <div class="center">
@@ -25,7 +25,8 @@
               data-chart-headers="<%= chart.data["headers"].to_json %>"
               data-chart-data="<%= chart.data["values"].to_json %>"
               data-chart-type="<%= chart.data["chart_type"] %>"
-              width="200" height="200">
+              width="200" height="200"
+              >
       </canvas>
     </div>
     <div class="col-5 chart-text">

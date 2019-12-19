@@ -14,13 +14,13 @@ export const bar = (element, headers, data, title) => {
         data: data,
         // chart.js gets data as an array!
         backgroundColor: [
-        '#5C6584',
-        '#00D592',
-        '#8B99CB',
-        '#ffc966',
-        '#90EE90',
-        '#53b0ae',
-        '#b163a3',
+        '#FF6200',
+        '#FD7F2C',
+        '#FD9346',
+        '#FDA766',
+        '#FDB777',
+        '#fed0a5',
+        '#feddbe',
 
         ],
         borderColor: [
@@ -174,7 +174,8 @@ export const doughnut = (element, headers, data, title) => {
         '#b163a3',
 
         ],
-        borderWidth: 1
+        borderWidth: 1,
+        padding: 10
       }]
     },
     options: {
@@ -182,12 +183,13 @@ export const doughnut = (element, headers, data, title) => {
       legend: {
         labels: {
           fontColor: "white",
-          fontSize: 20
+          fontSize: 15,
+          padding: 10
         }
       },
       scales: {
         yAxes: [{
-          display: true,
+          display: false,
           gridLines: {
             display: false ,
             color: "#FFFFFF"
