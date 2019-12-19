@@ -7,7 +7,7 @@
 
 
   <div class="nav-dx">
-    <span> <%= link_to 'Back', :back , class: "banana"%></span>
+    <span> <%= link_to 'Back', project_documents_path(@project), class: "banana"%></span>
 
      <%= link_to "Logout", destroy_user_session_path, class: "banana"%>
     </div>

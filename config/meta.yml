@@ -1,5 +1,5 @@
 meta_product_name: "HeatMap"
 meta_title: "HeatMap - Master Your Data"
 meta_description: "Relevant description"
-meta_image: "heatmap2.png" # should exist in `app/assets/images/`
+meta_image: "heatmap1.png" # should exist in `app/assets/images/`
 twitter_account: "@MapHeat"   # required for Twitter Cards

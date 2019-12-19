@@ -6,7 +6,7 @@
     <% end %>
   </div>
   <div class="nav-dx">
-   <span> <%= link_to 'Back', :back , class: "banana"%></span>
+   <span> <%= link_to 'Back', projects_path, class: "banana"%></span>
     <div >
       <%= link_to "Logout", destroy_user_session_path, class: "banana"%>
     </div>
@@ -42,7 +42,7 @@
       <div class="d-flex justify-content-around w-75 center">
        <div class="chart-export">
         <div class="py-2">
-          <%#= raise %>
+          
           <% if  @document.present? && params[:query].present? && !params[:document_id].present? %>
           <h4> Nothing to export </h4>
           <% elsif  @document.present? || (@document.present? && !params[:query].present?) %>
