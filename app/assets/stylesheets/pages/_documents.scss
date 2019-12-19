@@ -20,6 +20,10 @@ body {
   height: 350px;
 }
 
+.label-text label {
+  display: none;
+}
+
 .text-field {
   padding: 8px;
   margin: 20px;
@@ -103,10 +107,10 @@ body {
 .chart-text {
 background-color: white;
 color: blue;
-height: 200px;
 border-radius: 8px;
 text-align: center;
 padding: 24px;
+margin: 24px;
 }
 
 .title-name {
@@ -119,8 +123,8 @@ padding: 24px;
   height: 106px;
   border-radius: 8px;
 }
- .title-name h3 {
-  margin: 0;
+ .center-item {
+  margin: 0 auto;
  }
 
  .text-field-position {

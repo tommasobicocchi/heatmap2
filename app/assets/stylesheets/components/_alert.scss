@@ -9,3 +9,24 @@
   color: red;
 }
 
+.button-del:hover {
+  background-color: red ;
+ font-family: comfortaa;
+ color: white;
+ text-shadow: none;
+ border-color: none ;
+ cursor: pointer;
+}
+
+.button-del {
+      color: white;
+      background-color: #003986;
+      cursor: pointer;
+      font-size: 14px;
+      color: white;
+      transition: 0.3s;
+      border-radius:8px;
+     width: 150px;
+     text-align: center;
+     padding: 4px;
+}
