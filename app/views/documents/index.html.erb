@@ -41,9 +41,9 @@
 
       <div class="d-flex justify-content-around w-75 center">
        <div class="chart-export">
-        <div class="py-2">         
+        <div class="py-2">
           <% if  @document.present? && params[:query].present? && !params[:document_id].present? %>
-          <h4> Nothing to export </h4>
+          <h4 style="padding-right: 20px;"> Nothing to export </h4>
           <% elsif  @document.present? || (@document.present? && !params[:query].present?) %>
           <%= link_to "Export", @document.link.url %>
           <% else%>
@@ -68,8 +68,7 @@
     data-dropzone-project-id="<%= @project.id %>"
     class = "div_dropzone">
     <div class="div_dropzone_into">
-    <%= image_tag "slumber.png" , class: "image-dropzone"%>
-    <h2>Waiting for your file...</h2>
+    <h2>Drag & Drop your CSV file here</h2>
     </div>
     </div>
       <%#= simple_form_for(@document_new, :url => { :action => "create" })  do |f| %>

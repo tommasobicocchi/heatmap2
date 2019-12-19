@@ -17,7 +17,11 @@
   <% @charts.each  do |chart|%>
 <div class="center">
   <div class="title-name">
+    <% if chart.name == ""  %>
+      <h3>Chart Number <%= chart.id %></h3>
+   <% else %>
     <h3><%= chart.name %></h3>
+    <% end %>
   </div>
 </div>
     <div class="col-5 m-5">
