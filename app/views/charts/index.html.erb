@@ -12,7 +12,7 @@
   </div>
 </div>
 
-<div class="row w-100 align-items-center">
+<div class="row w-100 align-items-center" data-controller = "scrollreveal">
 
   <% @charts.each  do |chart|%>
 <div class="center">
@@ -25,7 +25,8 @@
               data-chart-headers="<%= chart.data["headers"].to_json %>"
               data-chart-data="<%= chart.data["values"].to_json %>"
               data-chart-type="<%= chart.data["chart_type"] %>"
-              width="200" height="200">
+              width="200" height="200"
+              >
       </canvas>
     </div>
     <div class="col-5 chart-text">
